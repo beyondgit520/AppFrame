@@ -11,8 +11,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.app.base.BaseActivity;
+import com.app.utils.MUtils;
 
 public class MainActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -28,8 +30,14 @@ public class MainActivity extends BaseActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                MUtils.showSBar(view, "Replace with your own action", Snackbar.LENGTH_INDEFINITE).setAction("Action", new View
+                        .OnClickListener
+                        () {
+                    @Override
+                    public void onClick(View view) {
+                        Toast.makeText(mContext, "Action", Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
         });
 
