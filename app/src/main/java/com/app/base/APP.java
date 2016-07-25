@@ -10,7 +10,7 @@ import com.squareup.leakcanary.LeakCanary;
  * Created by Administrator on 2016/7/6.
  */
 public class APP extends Application {
-    private Context context;
+    private static Context context;
     @Override
     public void onCreate() {
         super.onCreate();
@@ -20,7 +20,7 @@ public class APP extends Application {
         MUtils.initialize(this);
     }
 
-    public Context getContext() {
+    public static Context getContext() {
         return context;
     }
 }
