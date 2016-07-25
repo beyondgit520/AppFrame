@@ -60,4 +60,5 @@ dependencies {
     compile 'com.squareup.okhttp3:logging-interceptor:3.4.1'
     compile 'com.google.android.gms:play-services-auth:9.2.1'
     compile 'com.facebook.android:facebook-android-sdk:4.14.0'
+    compile 'com.android.support:support-v4:24.1.1'
 }
