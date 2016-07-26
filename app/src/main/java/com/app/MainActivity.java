@@ -1,5 +1,7 @@
 package com.app;
 
+import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -14,10 +16,13 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.app.base.BaseActivity;
+import com.app.module.login.LoginActivity;
+import com.app.module.wifi.WifiFragment;
 import com.app.utils.MUtils;
 
 public class MainActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    private WifiFragment wifiFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +40,7 @@ public class MainActivity extends BaseActivity
                         () {
                     @Override
                     public void onClick(View view) {
-                        Toast.makeText(mContext, "Action", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(mContext, LoginActivity.class));
                     }
                 });
             }
@@ -87,10 +92,19 @@ public class MainActivity extends BaseActivity
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
-
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
         switch (item.getItemId()) {
+            case R.id.nav_calendar: {
+                if (wifiFragment == null) {
+                    wifiFragment = new WifiFragment();
+                    transaction.add(R.id.container, wifiFragment, "wifiFragment");
+                } else {
+                    transaction.show(wifiFragment);
+                }
+            }
+            break;
         }
-
+        transaction.commit();
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;

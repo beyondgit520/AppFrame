@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="com.app"
-          xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.app">
 
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/><!-- 允许程序改变网络链接状态 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/><!--允许程序访问访问WIFI网络状态信息  -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/><!-- 允许程序改变WIFI链接状态 -->
 
     <application
         android:name=".base.APP"
@@ -11,6 +14,15 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id"/>
+
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
@@ -24,6 +36,11 @@
         <activity
             android:name=".module.login.LoginActivity"
             android:label="@string/title_activity_login"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".module.login.ChangePsdActivity"
+            android:label="@string/title_activity_change_psd"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
     </application>
