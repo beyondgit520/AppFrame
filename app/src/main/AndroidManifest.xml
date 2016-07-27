@@ -3,10 +3,13 @@
           package="com.app">
 
     <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/><!-- 允许程序改变网络链接状态 -->
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/><!--允许程序访问访问WIFI网络状态信息  -->
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/><!-- 允许程序改变WIFI链接状态 -->
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <!-- 允许程序改变网络链接状态 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <!-- 允许程序访问访问WIFI网络状态信息 -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
 
+    <!-- 允许程序改变WIFI链接状态 -->
     <application
         android:name=".base.APP"
         android:allowBackup="true"
@@ -41,6 +44,41 @@
         <activity
             android:name=".module.login.ChangePsdActivity"
             android:label="@string/title_activity_change_psd"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".module.setting.LanguageSetActivity"
+            android:label="@string/title_activity_language_set"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".module.setting.SettingActivity"
+            android:label="@string/title_activity_setting"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".module.setting.AboutAppActivity"
+            android:label="@string/title_activity_about_app"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".module.setting.AboutUsActivity"
+            android:label="@string/title_activity_about_us"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".module.news.AddKeyActivity"
+            android:label="@string/title_activity_add_key"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".module.news.NewsActivity"
+            android:label="@string/title_activity_news"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".module.me.SetMirrorActivity"
+            android:label="@string/title_activity_set_mirror"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
     </application>

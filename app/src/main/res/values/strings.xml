@@ -1,20 +1,30 @@
 <resources>
-    <string name="app_name">AppFrame</string>
+    <string name="app_name">MeRaw</string>
     <string name="facebook_app_id">603412763168189</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-
-    <string name="action_settings">Settings</string>
-    <string name="personal_info_settings">个人信息</string>
-    <string name="news_settings">新闻设置</string>
-    <string name="stock_settings">股票设置</string>
-    <string name="calendar_settings">日程设置</string>
-    <string name="traffic_settings">交通设置</string>
-    <string name="remind_settings">提醒事项</string>
-    <string name="system_settings">系统设置</string>
-
+    <string name="app_about">About MeRaw</string>
+    <string name="personal_info_settings">Personal Information</string>
+    <string name="news_settings">News Settings</string>
+    <string name="stock_settings">Stock Settings</string>
+    <string name="calendar_settings">Agenda Settings</string>
+    <string name="traffic_settings">Traffic Settings</string>
+    <string name="remind_settings">Alert Settings</string>
+    <string name="system_settings">System Settings</string>
+    <string name="login_out">Login Out</string>
+    <string name="to_score">To Score</string>
+    <string name="the_official_website">The Official Website</string>
+    <string name="about_us">About Us</string>
+    <string name="confirm">Confirm</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_login">LoginActivity</string>
-    <string name="title_activity_change_psd">ChangePsdActivity</string>
+    <string name="title_activity_login">Login</string>
+    <string name="title_activity_change_psd">Change Password</string>
+    <string name="title_activity_language_set">Language Set</string>
+    <string name="title_activity_setting">Setting</string>
+    <string name="title_activity_about_app">About App</string>
+    <string name="title_activity_about_us">About Us</string>
+    <string name="title_activity_add_key">AddKeyActivity</string>
+    <string name="title_activity_news">NewsActivity</string>
+    <string name="title_activity_set_mirror">SetMirrorActivity</string>
 </resources>

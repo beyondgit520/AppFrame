@@ -13,10 +13,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 import com.app.base.BaseActivity;
-import com.app.module.login.LoginActivity;
+import com.app.module.me.SetMirrorActivity;
+import com.app.module.news.NewsActivity;
+import com.app.module.setting.SettingActivity;
 import com.app.module.wifi.WifiFragment;
 import com.app.utils.MUtils;
 
@@ -40,7 +41,7 @@ public class MainActivity extends BaseActivity
                         () {
                     @Override
                     public void onClick(View view) {
-                        startActivity(new Intent(mContext, LoginActivity.class));
+                        startActivity(new Intent(mContext, SetMirrorActivity.class));
                     }
                 });
             }
@@ -101,7 +102,16 @@ public class MainActivity extends BaseActivity
                 } else {
                     transaction.show(wifiFragment);
                 }
+                break;
             }
+            case R.id.nav_news: {
+                startActivity(new Intent(mContext, NewsActivity.class));
+                break;
+            }
+            case R.id.nav_settings: {
+                startActivity(new Intent(mContext, SettingActivity.class));
+            }
+
             break;
         }
         transaction.commit();

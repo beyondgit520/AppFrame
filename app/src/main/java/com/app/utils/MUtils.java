@@ -16,8 +16,12 @@ import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Toast;
+
+import com.app.base.APP;
 
 import java.util.List;
+import java.util.Locale;
 
 /**
  * Created by Administrator on 2016/7/23.
@@ -27,6 +31,14 @@ public class MUtils {
 
     public static void initialize(Application app) {
         mApplicationContent = app.getApplicationContext();
+    }
+
+    public static void toast(@NonNull String text) {
+        Toast.makeText(mApplicationContent, text, Toast.LENGTH_SHORT).show();
+    }
+
+    public static void toast(@StringRes int resId) {
+        toast(mApplicationContent.getString(resId));
     }
 
     private static Snackbar showSnackBar(@NonNull View view, @NonNull CharSequence text, int duration) {
@@ -212,5 +224,15 @@ public class MUtils {
         } catch (PackageManager.NameNotFoundException e) {
             return null;
         }
+    }
+
+    /**
+     * 是否是设置值
+     *
+     * @return 是否是设置值
+     */
+    public static boolean isSetValue() {
+        Locale currentLocale = APP.getContext().getResources().getConfiguration().locale;
+        return currentLocale.equals(APP.getSetLocale());
     }
 }

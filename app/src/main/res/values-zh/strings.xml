@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">镜子</string>
+    <string name="app_about">关于 MeRaw</string>
+    <string name="personal_info_settings">个人信息</string>
+    <string name="news_settings">新闻设置</string>
+    <string name="stock_settings">股票设置</string>
+    <string name="calendar_settings">日程设置</string>
+    <string name="traffic_settings">交通设置</string>
+    <string name="remind_settings">提醒事项</string>
+    <string name="system_settings">系统设置</string>
+    <string name="login_out">退出</string>
+    <string name="to_score">去评分</string>
+    <string name="the_official_website">官网</string>
+    <string name="about_us">关于我们</string>
+    <string name="confirm">确定</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">空碎片</string>
+    <string name="title_activity_login">登陆</string>
+    <string name="title_activity_change_psd">修改密码</string>
+    <string name="title_activity_language_set">语言</string>
+    <string name="title_activity_setting">设置</string>
+    <string name="title_activity_about_app">关于MeRaw</string>
+    <string name="title_activity_about_us">关于我们</string>
+</resources>
