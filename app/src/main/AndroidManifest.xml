@@ -81,6 +81,11 @@
             android:label="@string/title_activity_set_mirror"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
+        <activity
+            android:name=".module.wifi.WifiListActivity"
+            android:label="@string/title_activity_wifi_list"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
     </application>
 
 </manifest>

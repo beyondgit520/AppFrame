@@ -18,12 +18,11 @@ import com.app.base.BaseActivity;
 import com.app.module.me.SetMirrorActivity;
 import com.app.module.news.NewsActivity;
 import com.app.module.setting.SettingActivity;
-import com.app.module.wifi.WifiFragment;
+import com.app.module.wifi.WifiListActivity;
 import com.app.utils.MUtils;
 
 public class MainActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-    private WifiFragment wifiFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,12 +95,7 @@ public class MainActivity extends BaseActivity
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
         switch (item.getItemId()) {
             case R.id.nav_calendar: {
-                if (wifiFragment == null) {
-                    wifiFragment = new WifiFragment();
-                    transaction.add(R.id.container, wifiFragment, "wifiFragment");
-                } else {
-                    transaction.show(wifiFragment);
-                }
+                startActivity(new Intent(mContext, WifiListActivity.class));
                 break;
             }
             case R.id.nav_news: {

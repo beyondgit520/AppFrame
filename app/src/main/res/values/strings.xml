@@ -27,4 +27,5 @@
     <string name="title_activity_add_key">AddKeyActivity</string>
     <string name="title_activity_news">NewsActivity</string>
     <string name="title_activity_set_mirror">SetMirrorActivity</string>
+    <string name="title_activity_wifi_list">WifiListActivity</string>
 </resources>
