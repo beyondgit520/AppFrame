@@ -86,6 +86,16 @@
             android:label="@string/title_activity_wifi_list"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
+        <activity
+            android:name=".module.wifi.BindWifiActivity"
+            android:label="@string/title_activity_bind_wifi"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".module.wifi.PairingWifiActivity"
+            android:label="@string/title_activity_pairing_wifi"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
     </application>
 
 </manifest>

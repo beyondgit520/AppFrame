@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.app.module.news.AddKeyActivity">
+    tools:context="com.app.module.wifi.PairingWifiActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -22,44 +22,28 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:paddingTop="50dp"
+        android:layout_margin="@dimen/normal_margin"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:background="?android:listDivider"/>
-
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/white">
-
-            <android.support.design.widget.TextInputEditText
-                style="@style/NormalEditText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/input_your_key"/>
-        </android.support.design.widget.TextInputLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:background="?android:listDivider"/>
-
         <android.support.v7.widget.AppCompatButton
+            android:id="@+id/how_pair_bt"
             style="@style/NormalButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/normal_margin"
-            android:text="@string/confirm"/>
-    </LinearLayout>
+            android:layout_alignParentBottom="true"
+            android:text="@string/how_pairing"/>
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/pair_bt"
+            style="@style/NormalButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/how_pair_bt"
+            android:layout_marginBottom="@dimen/normal_margin"
+            android:text="@string/start_pairing"/>
+    </RelativeLayout>
 
 </android.support.design.widget.CoordinatorLayout>

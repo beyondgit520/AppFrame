@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.app.base.BaseActivity;
+import com.app.module.login.LoginActivity;
 import com.app.module.me.SetMirrorActivity;
 import com.app.module.news.NewsActivity;
 import com.app.module.setting.SettingActivity;
@@ -94,6 +95,10 @@ public class MainActivity extends BaseActivity
         // Handle navigation view item clicks here.
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
         switch (item.getItemId()) {
+            case R.id.nav_personal: {
+                startActivity(new Intent(mContext, LoginActivity.class));
+                break;
+            }
             case R.id.nav_calendar: {
                 startActivity(new Intent(mContext, WifiListActivity.class));
                 break;

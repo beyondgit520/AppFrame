@@ -16,6 +16,9 @@
     <string name="the_official_website">The Official Website</string>
     <string name="about_us">About Us</string>
     <string name="confirm">Confirm</string>
+    <string name="select_net">Select the network…</string>
+    <string name="not_binding">No binding</string>
+    <string name="next_step">Next step</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_login">Login</string>
@@ -24,8 +27,18 @@
     <string name="title_activity_setting">Setting</string>
     <string name="title_activity_about_app">About App</string>
     <string name="title_activity_about_us">About Us</string>
-    <string name="title_activity_add_key">AddKeyActivity</string>
-    <string name="title_activity_news">NewsActivity</string>
-    <string name="title_activity_set_mirror">SetMirrorActivity</string>
-    <string name="title_activity_wifi_list">WifiListActivity</string>
+    <string name="title_activity_add_key">Add the keyword</string>
+    <string name="title_activity_news">News</string>
+    <string name="title_activity_set_mirror">Mirror identify</string>
+    <string name="title_activity_wifi_list">Search Wifi</string>
+    <string name="title_activity_bind_wifi">Binding WIFI</string>
+    <string name="wifi_name">WIFI Name</string>
+    <string name="wifi_pwd">WIFI Password</string>
+    <string name="input_your_key">Please enter your keyword</string>
+    <string name="please_set_your_pwd">Please set your password</string>
+    <string name="confirm_password_again">Confirm password again</string>
+    <string name="title_activity_pairing_wifi">Pairing</string>
+    <string name="pairing">Pairing</string>
+    <string name="start_pairing">Start pairing</string>
+    <string name="how_pairing">How to pair</string>
 </resources>

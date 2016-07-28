@@ -26,6 +26,14 @@
     </style>
 
     <style name="NormalEditText" parent="Widget.AppCompat.EditText">
+        <item name="android:paddingLeft">@dimen/normal_padding</item>
+        <item name="android:paddingRight">@dimen/normal_padding</item>
+        <item name="android:paddingTop">@dimen/small_padding</item>
+        <item name="android:paddingBottom">@dimen/small_padding</item>
+        <item name="android:background">@drawable/normal_edittext_selector</item>
+    </style>
+
+    <style name="SmallEditText" parent="Widget.AppCompat.EditText">
         <item name="android:padding">@dimen/small_padding</item>
         <item name="android:background">@drawable/normal_edittext_selector</item>
     </style>

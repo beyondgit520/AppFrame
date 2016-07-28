@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">镜子</string>
+    <string name="navigation_drawer_open">打开导航cd</string>
+    <string name="navigation_drawer_close">关闭导航菜单</string>
     <string name="app_about">关于 MeRaw</string>
     <string name="personal_info_settings">个人信息</string>
     <string name="news_settings">新闻设置</string>
@@ -14,6 +16,8 @@
     <string name="the_official_website">官网</string>
     <string name="about_us">关于我们</string>
     <string name="confirm">确定</string>
+    <string name="select_net">选择网络…</string>
+    <string name="not_binding">暂不绑定</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">空碎片</string>
     <string name="title_activity_login">登陆</string>
@@ -22,4 +26,19 @@
     <string name="title_activity_setting">设置</string>
     <string name="title_activity_about_app">关于MeRaw</string>
     <string name="title_activity_about_us">关于我们</string>
+    <string name="title_activity_add_key">添加关键字</string>
+    <string name="title_activity_news">新闻</string>
+    <string name="title_activity_set_mirror">镜子标识</string>
+    <string name="title_activity_wifi_list">搜索wifi</string>
+    <string name="next_step">下一步</string>
+    <string name="title_activity_bind_wifi">绑定WIFI</string>
+    <string name="wifi_name">WIFI名称</string>
+    <string name="wifi_pwd">WIFI密码</string>
+    <string name="input_your_key">请输入您关注的关键字</string>
+    <string name="please_set_your_pwd">请设置您的密码</string>
+    <string name="confirm_password_again">再次确认密码</string>
+    <string name="pairing">配对</string>
+    <string name="start_pairing">开始配对</string>
+    <string name="how_pairing">如何配对</string>
+    <string name="title_activity_pairing_wifi">配对</string>
 </resources>

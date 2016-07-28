@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <import type="android.net.wifi.ScanResult"/>
+
+        <variable
+            name="result"
+            type="ScanResult"/>
+
+        <variable
+            name="event"
+            type="com.app.module.wifi.WifiEvent"/>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:onClick="@{(view) -> event.onItemClick(view,result)}"
+        android:padding="@dimen/normal_padding">
+
+        <TextView
+            android:id="@+id/wifi_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:text="@{result.SSID}"/>
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/wifi_ico"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            app:srcCompat="@drawable/ic_wifi_black_24dp"/>
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/wifi_lock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="@dimen/mini_margin"
+            android:layout_toLeftOf="@+id/wifi_ico"
+            android:layout_toStartOf="@+id/wifi_ico"
+            android:visibility='@{result.capabilities.contains("WPA")?View.VISIBLE:View.GONE}'
+            app:srcCompat="@drawable/ic_vpn_key_black_24dp"/>
+    </RelativeLayout>
+</layout>
