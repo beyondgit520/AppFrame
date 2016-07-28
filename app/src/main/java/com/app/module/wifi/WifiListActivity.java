@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.databinding.DataBindingUtil;
 import android.net.wifi.ScanResult;
+import android.net.wifi.WifiConfiguration;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
@@ -14,6 +15,7 @@ import android.view.View;
 import com.app.R;
 import com.app.base.BaseActivity;
 import com.app.databinding.ActivityWifiListBinding;
+import com.app.utils.Logger;
 import com.app.utils.MUtils;
 import com.app.widget.DividerItemDecoration;
 
@@ -79,5 +81,8 @@ public class WifiListActivity extends BaseActivity implements WifiEvent {
         Intent intent = new Intent(mContext, BindWifiActivity.class);
         intent.putExtra("ScanResult", result);
         startActivity(intent);
+        for (WifiConfiguration configuration : wifiAdmin.getConfiguration()) {
+            Logger.d(tag, configuration.toString());
+        }
     }
 }

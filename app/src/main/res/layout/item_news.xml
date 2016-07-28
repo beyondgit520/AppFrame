@@ -4,6 +4,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/black_p"
         android:orientation="vertical"
         android:padding="@dimen/normal_padding">
 
@@ -23,7 +24,8 @@
             android:layout_toEndOf="@+id/news_pic"
             android:layout_toRightOf="@+id/news_pic"
             android:maxLines="2"
-            android:text="New Text"/>
+            android:text="New Text"
+            android:textColor="@color/white"/>
 
         <TextView
             android:id="@+id/textView3"
@@ -33,7 +35,8 @@
             android:layout_toEndOf="@+id/news_pic"
             android:layout_toRightOf="@+id/news_pic"
             android:text="Small Text"
-            android:textAppearance="?android:attr/textAppearanceSmall"/>
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/white"/>
 
         <TextView
             android:id="@+id/textView4"
@@ -43,6 +46,7 @@
             android:layout_alignLeft="@+id/textView3"
             android:layout_alignStart="@+id/textView3"
             android:text="Small Text"
-            android:textAppearance="?android:attr/textAppearanceSmall"/>
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/white"/>
     </RelativeLayout>
 </layout>
