@@ -3,14 +3,14 @@
       xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/action_settings"
-        android:icon="@drawable/ic_setting_24dp"
+        android:icon="@drawable/ic_menu_setting"
         android:orderInCategory="100"
         android:title="@string/system_settings"
         app:showAsAction="always"/>
     <item
         android:id="@+id/action_mirror"
-        android:icon="@drawable/ic_upload_24dp"
+        android:icon="@drawable/ic_upload_mirror"
         android:orderInCategory="100"
-        android:title="@string/system_settings"
+        android:title="@string/app_name"
         app:showAsAction="always"/>
 </menu>

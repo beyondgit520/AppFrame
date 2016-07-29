@@ -2,12 +2,14 @@ package com.app.module.login;
 
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -37,20 +39,32 @@ import org.json.JSONObject;
 import java.util.Arrays;
 
 public class LoginActivity extends BaseActivity implements GoogleApiClient.OnConnectionFailedListener {
+    private static final int RC_SIGN_IN = 1;
     private ActivityLoginBinding binding;
     private GoogleApiClient mGoogleApiClient;
-    private static final int RC_SIGN_IN = 1;
     private CallbackManager callbackManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login);
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN) {
+            getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                    WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        } else {
+            View decorView = getWindow().getDecorView();
+            int uiOptions = View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                    | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                    | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                    | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                    | View.SYSTEM_UI_FLAG_FULLSCREEN
+                    | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                    | View.SYSTEM_UI_FLAG_IMMERSIVE;
+            decorView.setSystemUiVisibility(uiOptions);
+        }
         binding.setAdapter(this);
         initFaceBook();
         initGoogle();
-        binding.userNameTil.setHint("username");
-        binding.userPsdTil.setHint("password");
         binding.userPsdTil.getEditText().setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
@@ -70,7 +84,7 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
         Toast.makeText(mContext, binding.userNameTil.getEditText().getText().toString() + ":" + binding.userPsdTil
                 .getEditText().getText()
                 .toString(), Toast.LENGTH_SHORT).show();
-        startActivity(new Intent(this,ChangePsdActivity.class));
+        startActivity(new Intent(this, MultiActivity.class));
     }
 
     private void initFaceBook() {
@@ -83,7 +97,7 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
                     @Override
                     public void onCompleted(JSONObject object, GraphResponse response) {
                         Logger.d(tag, "facebook:\n" + object.toString());
-                        MUtils.showSBar(binding.loginBt,object.toString(),Snackbar.LENGTH_INDEFINITE);
+                        MUtils.showSBar(binding.loginBt, object.toString(), Snackbar.LENGTH_INDEFINITE);
                     }
                 });
                 Bundle parameters = new Bundle();
@@ -137,6 +151,18 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
 
+    public void registrer() {
+        Intent intent = new Intent(mContext, MultiActivity.class);
+        intent.putExtra("TYPE", MultiActivity.LOGIN_STEP_1);
+        startActivity(intent);
+    }
+
+    public void forgotPwd() {
+        Intent intent = new Intent(mContext, MultiActivity.class);
+        intent.putExtra("TYPE", MultiActivity.FORGOT_PWD);
+        startActivity(intent);
+    }
+
     private void handleSignInResult(GoogleSignInResult result) {
         Logger.d(tag, "handleSignInResult:" + result.isSuccess());
 
@@ -146,7 +172,7 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
 //            mStatusTextView.setText(getString(R.string.signed_in_fmt, acct.getDisplayName()));
 //            updateUI(true);
             Logger.d(tag, "handleSignInResult:" + acct.getId() + "\n" + acct.getDisplayName() + "\n" + acct.getIdToken());
-            MUtils.showSBar(binding.loginBt,acct.getId()+acct.getDisplayName(),Snackbar.LENGTH_INDEFINITE);
+            MUtils.showSBar(binding.loginBt, acct.getId() + acct.getDisplayName(), Snackbar.LENGTH_INDEFINITE);
         } else {
             // Signed out, show unauthenticated UI.
 //            updateUI(false);

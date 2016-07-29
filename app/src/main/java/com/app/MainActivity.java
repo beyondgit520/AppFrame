@@ -16,6 +16,7 @@ import android.view.View;
 
 import com.app.base.BaseActivity;
 import com.app.module.login.LoginActivity;
+import com.app.module.me.MeActivity;
 import com.app.module.me.SetMirrorActivity;
 import com.app.module.news.NewsActivity;
 import com.app.module.setting.SettingActivity;
@@ -30,6 +31,7 @@ public class MainActivity extends BaseActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle(R.string.menu);
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -83,6 +85,7 @@ public class MainActivity extends BaseActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            MUtils.toast(R.string.share);
             return true;
         }
 
@@ -97,6 +100,10 @@ public class MainActivity extends BaseActivity
         switch (item.getItemId()) {
             case R.id.nav_personal: {
                 startActivity(new Intent(mContext, LoginActivity.class));
+                break;
+            }
+            case R.id.nav_stock: {
+                startActivity(new Intent(mContext, MeActivity.class));
                 break;
             }
             case R.id.nav_calendar: {

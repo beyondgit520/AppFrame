@@ -10,7 +10,6 @@ import android.support.v7.widget.AppCompatRadioButton;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.RadioGroup;
-import android.widget.Toast;
 
 import com.app.MainActivity;
 import com.app.R;
@@ -44,11 +43,9 @@ public class LanguageSetActivity extends BaseActivity {
                 switch (i) {
                     case R.id.zh_rb:
                         changAppLanguage(getApplicationContext().getResources(), Locale.CHINESE.getLanguage());
-                        Toast.makeText(mContext, Locale.CHINESE.getLanguage(), Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.en_rb:
                         changAppLanguage(getApplicationContext().getResources(), Locale.ENGLISH.getLanguage());
-                        Toast.makeText(mContext, Locale.getDefault().getLanguage(), Toast.LENGTH_SHORT).show();
                         break;
                 }
             }
@@ -79,12 +76,14 @@ public class LanguageSetActivity extends BaseActivity {
             preferences.edit().putString("language", "default").apply();
         }
         resources.updateConfiguration(configuration, resources.getDisplayMetrics());
-
+//        for (Activity activity : ((APP) getApplication()).getActivities()) {
+//            if (activity != null && !activity.isFinishing()) activity.finish();
+//        }
         Intent intent = new Intent(this, MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
         // 杀掉进程
-        android.os.Process.killProcess(android.os.Process.myPid());
-        System.exit(0);
+//        android.os.Process.killProcess(android.os.Process.myPid());
+//        System.exit(0);
     }
 }

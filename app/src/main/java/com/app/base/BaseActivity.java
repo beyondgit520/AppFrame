@@ -33,6 +33,7 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ((APP) getApplication()).addActivity(this);
         mContext = this;
         tag = this.getClass().getSimpleName();
         progressDialog = new ProgressDialog(mContext);
@@ -59,6 +60,7 @@ public class BaseActivity extends AppCompatActivity {
             }
         }
         subscribers.removeAll(deleteList);
+        ((APP) getApplication()).removeActivity(this);
         super.onDestroy();
     }
 

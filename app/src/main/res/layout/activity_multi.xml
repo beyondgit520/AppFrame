@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="adapter"
+            type="com.app.module.login.MultiActivity"/>
+    </data>
+
+    <android.support.design.widget.CoordinatorLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        tools:context=".module.login.MultiActivity">
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.AppBarOverlay">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                app:popupTheme="@style/AppTheme.PopupOverlay"/>
+
+        </android.support.design.widget.AppBarLayout>
+
+        <android.support.v7.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="60dp"
+            android:orientation="vertical"
+            app:divider="?android:listDivider"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            app:showDividers="beginning|middle">
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/user_name_til"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:visibility="@{adapter.edit1Visible?View.VISIBLE:View.GONE}">
+
+                <android.support.design.widget.TextInputEditText
+                    style="@style/NormalEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/please_set_your_pwd"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.v7.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:visibility="@{adapter.edit2Visible?View.VISIBLE:View.GONE}"
+                app:divider="?android:listDivider"
+                app:dividerPadding="@dimen/small_padding"
+                app:showDividers="middle">
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/user_psd_til"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:visibility="visible">
+
+                    <android.support.design.widget.TextInputEditText
+                        style="@style/NormalEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/confirm_password_again"
+                        android:inputType="textPassword"/>
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="?selectableItemBackground"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:onClick="verifi"
+                    android:padding="@dimen/normal_margin"
+                    android:text="@string/get_verification_code"
+                    android:visibility="@{adapter.verifiVisible?View.VISIBLE:View.GONE}"/>
+            </android.support.v7.widget.LinearLayoutCompat>
+
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/login_bt"
+                style="@style/NormalButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/user_psd_til"
+                android:layout_marginLeft="@dimen/normal_margin"
+                android:layout_marginRight="@dimen/normal_margin"
+                android:layout_marginTop="@dimen/normal_margin"
+                android:onClick="click"
+                android:text="@{adapter.buttonText}"
+                android:visibility="visible"/>
+        </android.support.v7.widget.LinearLayoutCompat>
+
+
+    </android.support.design.widget.CoordinatorLayout>
+</layout>
+

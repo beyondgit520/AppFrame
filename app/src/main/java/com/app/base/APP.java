@@ -1,5 +1,6 @@
 package com.app.base;
 
+import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -11,6 +12,8 @@ import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
 import com.squareup.leakcanary.LeakCanary;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 /**
@@ -18,6 +21,7 @@ import java.util.Locale;
  */
 public class APP extends Application {
     private static Context context;
+    private List<Activity> activities = new ArrayList<>();
 
     public static Context getContext() {
         return context;
@@ -51,5 +55,17 @@ public class APP extends Application {
             config.locale = getSetLocale();
         }
         getApplicationContext().getResources().updateConfiguration(config, getApplicationContext().getResources().getDisplayMetrics());
+    }
+
+    public List<Activity> getActivities() {
+        return activities;
+    }
+
+    public void addActivity(Activity activity) {
+        activities.add(activity);
+    }
+
+    public void removeActivity(Activity activity) {
+        if (activities.contains(activity)) activities.remove(activity);
     }
 }

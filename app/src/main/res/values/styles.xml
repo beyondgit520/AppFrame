@@ -8,6 +8,9 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:splitMotionEvents">false</item>
         <item name="android:windowBackground">@color/colorBackground</item>
+        <item name="navigationIcon">@drawable/ic_navigation</item>
+        <item name="titleTextAppearance">@style/ToolbarTitle</item>
+        <item name="android:drawablePadding">@dimen/small_padding</item>
     </style>
 
     <style name="AppTheme.NoActionBar">

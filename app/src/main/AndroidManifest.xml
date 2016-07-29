@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="com.app"
-          xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.app">
 
     <uses-permission android:name="android.permission.CALL_PHONE"/>
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -44,7 +44,7 @@
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
-            android:name=".module.login.ChangePsdActivity"
+            android:name=".module.login.MultiActivity"
             android:label="@string/title_activity_change_psd"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
@@ -96,6 +96,11 @@
         <activity
             android:name=".module.wifi.PairingWifiActivity"
             android:label="@string/title_activity_pairing_wifi"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".module.me.MeActivity"
+            android:label="@string/title_activity_me"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
     </application>

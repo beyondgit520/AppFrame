@@ -40,7 +40,7 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
-            app:srcCompat="@drawable/ic_wifi_black_24dp"/>
+            app:srcCompat="@drawable/ic_wifi"/>
 
         <android.support.v7.widget.AppCompatImageView
             android:id="@+id/wifi_lock"
@@ -51,6 +51,6 @@
             android:layout_toLeftOf="@+id/wifi_ico"
             android:layout_toStartOf="@+id/wifi_ico"
             android:visibility='@{result.capabilities.contains("WPA")?View.VISIBLE:View.GONE}'
-            app:srcCompat="@drawable/ic_vpn_key_black_24dp"/>
+            app:srcCompat="@drawable/ic_wifi_lock"/>
     </RelativeLayout>
 </layout>

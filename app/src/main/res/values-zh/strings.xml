@@ -20,7 +20,7 @@
     <string name="not_binding">暂不绑定</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">空碎片</string>
-    <string name="title_activity_login">登陆</string>
+    <string name="title_activity_login">登录</string>
     <string name="title_activity_change_psd">修改密码</string>
     <string name="title_activity_language_set">语言</string>
     <string name="title_activity_setting">设置</string>
@@ -41,4 +41,17 @@
     <string name="start_pairing">开始配对</string>
     <string name="how_pairing">如何配对</string>
     <string name="title_activity_pairing_wifi">配对</string>
+    <string name="menu">菜单</string>
+    <string name="share">分享</string>
+    <string name="scan">扫一扫</string>
+    <string name="enter_mirror_mark">请输入镜子标识</string>
+    <string name="send">发送</string>
+    <string name="others_login">第三方登录</string>
+    <string name="register">注册</string>
+    <string name="forgot_pwd">忘记密码</string>
+    <string name="enter_phone_email">请输入你的手机号/邮箱</string>
+    <string name="enter_pwd">请输入密码</string>
+    <string name="login">登录</string>
+    <string name="get_verification_code">获取验证码</string>
+    <string name="registered_members">会员注册</string>
 </resources>

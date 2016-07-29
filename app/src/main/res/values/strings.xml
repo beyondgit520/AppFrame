@@ -41,4 +41,19 @@
     <string name="pairing">Pairing</string>
     <string name="start_pairing">Start pairing</string>
     <string name="how_pairing">How to pair</string>
+    <string name="menu">Menu</string>
+    <string name="share">Share</string>
+    <string name="scan">Scan</string>
+    <string name="enter_mirror_mark">Please enter a mirror mark</string>
+    <string name="send">Send</string>
+    <string name="others_login">Third-party login</string>
+    <string name="register">Register</string>
+    <string name="forgot_pwd">Forgot password</string>
+    <string name="enter_phone_email">Please enter your phone number/email</string>
+    <string name="enter_pwd">Please enter the password</string>
+    <string name="login">Login</string>
+    <string name="get_verification_code">Get verification code</string>
+    <string name="registered_members">Registered members</string>
+    <string name="register_now">Register now</string>
+    <string name="title_activity_me">MeActivity</string>
 </resources>

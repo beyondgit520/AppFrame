@@ -47,7 +47,7 @@
                 style="@style/NormalEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/about_us"/>
+                android:hint="@string/enter_mirror_mark"/>
         </android.support.design.widget.TextInputLayout>
 
         <View
@@ -64,14 +64,14 @@
             android:drawableLeft="@drawable/ic_scan"
             android:gravity="center"
             android:padding="@dimen/normal_padding"
-            android:text="@string/about_us"/>
+            android:text="@string/scan"/>
 
         <android.support.v7.widget.AppCompatButton
             style="@style/NormalButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/normal_margin"
-            android:text="@string/confirm"/>
+            android:text="@string/send"/>
     </LinearLayout>
 
 </android.support.design.widget.CoordinatorLayout>

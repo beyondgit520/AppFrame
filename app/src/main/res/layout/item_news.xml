@@ -45,6 +45,7 @@
             android:layout_alignBottom="@+id/news_pic"
             android:layout_alignLeft="@+id/textView3"
             android:layout_alignStart="@+id/textView3"
+            android:drawableLeft="@drawable/ic_news_time"
             android:text="Small Text"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="@color/white"/>

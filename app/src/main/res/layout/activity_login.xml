@@ -18,7 +18,8 @@
 
         <android.support.v4.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true">
 
             <RelativeLayout
                 xmlns:android="http://schemas.android.com/apk/res/android"
@@ -61,7 +62,8 @@
                     <android.support.design.widget.TextInputEditText
                         style="@style/NormalEditText"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content"
+                        android:hint="@string/enter_phone_email"/>
                 </android.support.design.widget.TextInputLayout>
 
                 <View
@@ -83,6 +85,7 @@
                         style="@style/NormalEditText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:hint="@string/enter_pwd"
                         android:inputType="textPassword"/>
                 </android.support.design.widget.TextInputLayout>
 
@@ -102,7 +105,7 @@
                     android:layout_marginRight="10dp"
                     android:layout_marginTop="10dp"
                     android:onClick="@{() -> adapter.signIn()}"
-                    android:text="登陆"
+                    android:text="@string/login"
                     android:visibility="visible"/>
 
                 <android.support.v7.widget.AppCompatTextView
@@ -112,13 +115,21 @@
                     android:layout_below="@id/login_bt"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="16dp"
-                    android:text="其他平台登陆"/>
+                    android:text="@string/others_login"/>
+
+                <View
+                    android:id="@+id/line3"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/other_info"
+                    android:layout_centerHorizontal="true"
+                    android:layout_margin="32dp"
+                    android:background="?android:listDivider"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/other_info"
-                    android:layout_marginTop="16dp"
+                    android:layout_below="@id/line3"
                     android:gravity="center"
                     android:orientation="horizontal"
                     android:visibility="visible">
@@ -131,9 +142,10 @@
                         android:layout_marginRight="20dp"
                         android:background="?selectableItemBackgroundBorderless"
                         android:clickable="true"
-                        android:drawableTop="@mipmap/ic_launcher"
+                        android:drawableTop="@drawable/facebook"
+                        android:gravity="center"
                         android:onClick="@{() -> adapter.facebookSignIN()}"
-                        android:text="facebook"/>
+                        android:text="Facebook"/>
 
                     <android.support.v7.widget.AppCompatTextView
                         android:id="@+id/google_login"
@@ -143,9 +155,10 @@
                         android:layout_marginRight="20dp"
                         android:background="?selectableItemBackgroundBorderless"
                         android:clickable="true"
-                        android:drawableTop="@mipmap/ic_launcher"
+                        android:drawableTop="@drawable/google"
+                        android:gravity="center"
                         android:onClick="@{() -> adapter.googleSignIn()}"
-                        android:text="google"/>
+                        android:text="Google+"/>
                 </LinearLayout>
 
 
@@ -160,7 +173,8 @@
             android:layout_margin="10dp"
             android:background="?selectableItemBackgroundBorderless"
             android:clickable="true"
-            android:text="忘记密码"/>
+            android:onClick="@{() -> adapter.forgotPwd()}"
+            android:text="@string/forgot_pwd"/>
 
         <android.support.v7.widget.AppCompatTextView
             android:id="@+id/register"
@@ -171,7 +185,8 @@
             android:layout_margin="10dp"
             android:background="?selectableItemBackgroundBorderless"
             android:clickable="true"
-            android:text="注册"/>
+            android:onClick="@{() -> adapter.registrer()}"
+            android:text="@string/register"/>
     </RelativeLayout>
 </layout>
 
