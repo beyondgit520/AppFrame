@@ -3,6 +3,19 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <import type="com.app.R"/>
+
+        <variable
+            name="user"
+            type="com.app.module.me.entity.User"/>
+
+        <variable
+            name="event"
+            type="com.app.module.me.event.MeEvent"/>
+    </data>
+
     <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -12,7 +25,7 @@
         <android.support.design.widget.AppBarLayout
             android:id="@+id/app_bar"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="150dp"
             android:fitsSystemWindows="true"
             android:theme="@style/AppTheme.AppBarOverlay">
 
@@ -21,21 +34,44 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fitsSystemWindows="true"
+                app:collapsedTitleGravity="center_vertical"
                 app:contentScrim="?attr/colorPrimary"
-                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+                app:expandedTitleGravity="center"
+                app:expandedTitleMarginBottom="65dp"
+                app:expandedTitleTextAppearance="@style/TitleAppearance"
+                app:title="beyond">
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/large_margin"
+                    android:onClick="@{() -> event.clickAvatar()}"
+                    android:src="@color/colorAccent"
+                    app:imageUrl="@{user.avatar}"/>
+
+                <android.support.v7.widget.AppCompatTextView
+                    style="@style/TextAppearance.AppCompat.Headline"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="130dp"
+                    android:background="?selectableItemBackground"
+                    android:drawableRight="@drawable/ic_right_indicator"
+                    android:gravity="center_vertical"
+                    android:onClick="@{() -> event.clickNickName()}"
+                    android:padding="@dimen/normal_padding"
+                    android:text="@{user.nickname}"/>
 
                 <android.support.v7.widget.Toolbar
                     android:id="@+id/toolbar"
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
                     app:layout_collapseMode="pin"
+                    app:navigationIcon="@null"
                     app:popupTheme="@style/AppTheme.PopupOverlay"/>
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_vertical"
-                    android:src="@color/colorAccent"/>
+
             </android.support.design.widget.CollapsingToolbarLayout>
         </android.support.design.widget.AppBarLayout>
 
@@ -55,13 +91,14 @@
                     android:background="@color/white"
                     android:orientation="vertical"
                     app:divider="?android:listDivider"
-                    app:showDividers="middle|end">
+                    app:showDividers="middle">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="?selectableItemBackground"
                         android:clickable="true"
+                        android:onClick="@{() -> event.clickGender()}"
                         android:orientation="horizontal">
 
                         <android.support.v7.widget.AppCompatTextView
@@ -69,15 +106,15 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:padding="@dimen/normal_padding"
-                            android:text="xingbie"/>
+                            android:text="@string/gender"/>
 
                         <android.support.v7.widget.AppCompatTextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="3"
+                            android:layout_weight="2"
                             android:drawableRight="@drawable/ic_right_indicator"
                             android:padding="@dimen/normal_padding"
-                            android:text="nan"/>
+                            android:text="@{user.gender==0?@string/male:@string/female}"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -85,6 +122,7 @@
                         android:layout_height="wrap_content"
                         android:background="?selectableItemBackground"
                         android:clickable="true"
+                        android:onClick="@{() -> event.clickEmail()}"
                         android:orientation="horizontal">
 
                         <android.support.v7.widget.AppCompatTextView
@@ -92,15 +130,15 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:padding="@dimen/normal_padding"
-                            android:text="xingbie"/>
+                            android:text="@string/email"/>
 
                         <android.support.v7.widget.AppCompatTextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="3"
+                            android:layout_weight="2"
                             android:drawableRight="@drawable/ic_right_indicator"
                             android:padding="@dimen/normal_padding"
-                            android:text="nan"/>
+                            android:text="@{user.email}"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -108,6 +146,7 @@
                         android:layout_height="wrap_content"
                         android:background="?selectableItemBackground"
                         android:clickable="true"
+                        android:onClick="@{() -> event.clickMobile()}"
                         android:orientation="horizontal">
 
                         <android.support.v7.widget.AppCompatTextView
@@ -115,15 +154,15 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:padding="@dimen/normal_padding"
-                            android:text="xingbie"/>
+                            android:text="@string/phone_number"/>
 
                         <android.support.v7.widget.AppCompatTextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="3"
+                            android:layout_weight="2"
                             android:drawableRight="@drawable/ic_right_indicator"
                             android:padding="@dimen/normal_padding"
-                            android:text="nan"/>
+                            android:text='@{user.mobilePhone+""}'/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -136,12 +175,12 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:padding="@dimen/normal_padding"
-                            android:text="xingbie"/>
+                            android:text="@string/facebook"/>
 
                         <FrameLayout
                             android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="3">
+                            android:layout_height="match_parent"
+                            android:layout_weight="2">
 
                             <android.support.v7.widget.AppCompatTextView
                                 android:layout_width="match_parent"
@@ -155,7 +194,48 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="right|center_vertical"
                                 android:layout_marginRight="50dp"
-                                android:background="@color/black"
+                                android:background="@drawable/ic_small_bt_black_bg"
+                                android:gravity="center"
+                                android:onClick="@{() -> event.clickFacebook(1)}"
+                                android:padding="5dp"
+                                android:text="@string/binding"
+                                android:textColor="@color/white"/>
+                        </FrameLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:padding="@dimen/normal_padding"
+                            android:text="@string/google"/>
+
+                        <FrameLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2">
+
+                            <android.support.v7.widget.AppCompatTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:drawableRight="@drawable/ic_right_indicator"
+                                android:padding="@dimen/normal_padding"
+                                android:text="nan"/>
+
+                            <android.support.v7.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="right|center_vertical"
+                                android:layout_marginRight="50dp"
+                                android:background="@drawable/ic_small_bt_gray_bg"
+                                android:gravity="center"
+                                android:onClick="@{() -> event.clickGoogle(1)}"
+                                android:padding="5dp"
                                 android:text="绑定"
                                 android:textColor="@color/white"/>
                         </FrameLayout>
@@ -171,12 +251,12 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:padding="@dimen/normal_padding"
-                            android:text="xingbie"/>
+                            android:text="@string/app_name"/>
 
                         <FrameLayout
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="3">
+                            android:layout_weight="2">
 
                             <android.support.v7.widget.AppCompatTextView
                                 android:layout_width="match_parent"
@@ -190,7 +270,9 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="right|center_vertical"
                                 android:layout_marginRight="50dp"
-                                android:background="@color/black"
+                                android:background="@drawable/ic_small_bt_black_bg"
+                                android:gravity="center"
+                                android:onClick="@{() -> event.clickMirror(1)}"
                                 android:text="绑定"
                                 android:textColor="@color/white"/>
                         </FrameLayout>
@@ -206,12 +288,12 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:padding="@dimen/normal_padding"
-                            android:text="xingbie"/>
+                            android:text="@string/wifi"/>
 
                         <FrameLayout
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="3">
+                            android:layout_weight="2">
 
                             <android.support.v7.widget.AppCompatTextView
                                 android:layout_width="match_parent"
@@ -225,58 +307,33 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="right|center_vertical"
                                 android:layout_marginRight="50dp"
-                                android:background="@color/black"
-                                android:text="绑定"
-                                android:textColor="@color/white"/>
-                        </FrameLayout>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <android.support.v7.widget.AppCompatTextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:padding="@dimen/normal_padding"
-                            android:text="xingbie"/>
-
-                        <FrameLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="3">
-
-                            <android.support.v7.widget.AppCompatTextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:drawableRight="@drawable/ic_right_indicator"
-                                android:padding="@dimen/normal_padding"
-                                android:text="nan"/>
-
-                            <android.support.v7.widget.AppCompatTextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="right|center_vertical"
-                                android:layout_marginRight="50dp"
-                                android:background="@color/black"
+                                android:background="@drawable/ic_small_bt_black_bg"
+                                android:gravity="center"
+                                android:onClick="@{() -> event.clickWifi(1)}"
                                 android:text="绑定"
                                 android:textColor="@color/white"/>
                         </FrameLayout>
                     </LinearLayout>
                 </android.support.v7.widget.LinearLayoutCompat>
 
-                <android.support.v7.widget.AppCompatTextView
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/normal_margin"
-                    android:background="@color/white"
-                    android:drawableLeft="@drawable/ic_setting_black"
-                    android:drawableRight="@drawable/ic_right_indicator"
-                    android:gravity="center_vertical"
-                    android:padding="@dimen/normal_padding"
-                    android:text="修改密码"/>
+                    android:background="@color/white">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?selectableItemBackground"
+                        android:drawableLeft="@drawable/ic_setting_black"
+                        android:drawableRight="@drawable/ic_right_indicator"
+                        android:gravity="center_vertical"
+                        android:onClick="@{() -> event.modifiPwd()}"
+                        android:padding="@dimen/normal_padding"
+                        android:text="@string/change_pwd"/>
+                </LinearLayout>
+
             </LinearLayout>
 
 

@@ -3,15 +3,12 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
-
-    </data>
-
     <android.support.design.widget.CoordinatorLayout
+
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
-        tools:context="com.app.module.news.NewsActivity">
+        tools:context="com.app.module.me.EditHeaderActivity">
 
         <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
@@ -30,21 +27,28 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:paddingBottom="@dimen/activity_vertical_margin"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/activity_vertical_margin"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-            <android.support.v4.widget.SwipeRefreshLayout
-                android:id="@+id/refreshLayout"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/header"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="@dimen/large_margin"
+                android:background="@drawable/black_circle_shape"
+                android:padding="2dp"/>
 
-                <android.support.v7.widget.RecyclerView
-                    android:id="@+id/recyclerView"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@color/black"
-                    app:itemDecoration="@{true}"
-                    app:layoutManager="@string/recyclerview_linearlayout_manager"/>
-            </android.support.v4.widget.SwipeRefreshLayout>
+            <android.support.v7.widget.AppCompatButton
+                style="@style/NormalButton"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/header"
+                android:layout_centerHorizontal="true"
+                android:text="@string/change_header"/>
         </RelativeLayout>
 
     </android.support.design.widget.CoordinatorLayout>

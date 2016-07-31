@@ -2,61 +2,95 @@ package com.app;
 
 import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
+import android.os.Handler;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
 import com.app.base.BaseActivity;
-import com.app.module.login.LoginActivity;
+import com.app.databinding.ActivityMainBinding;
+import com.app.http.HttpMethods;
+import com.app.http.MySubscriber;
+import com.app.module.main.AttentionAdapter;
 import com.app.module.me.MeActivity;
-import com.app.module.me.SetMirrorActivity;
 import com.app.module.news.NewsActivity;
+import com.app.module.news.NewsEvent;
+import com.app.module.news.entity.NewsEntity;
 import com.app.module.setting.SettingActivity;
-import com.app.module.wifi.WifiListActivity;
 import com.app.utils.MUtils;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    private ActivityMainBinding binding;
+    private RecyclerView attentionView;
+    private AttentionAdapter attentionAdapter;
+    private List<NewsEntity> attentionDatas = new ArrayList<>();
+    private Handler timeHandler = new Handler();
+    private Runnable timeRunnable = new Runnable() {
+        @Override public void run() {
+            getAttention();
+            timeHandler.postDelayed(this, 10 * 1000);
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle(R.string.menu);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                MUtils.showSBar(view, "Replace with your own action", Snackbar.LENGTH_INDEFINITE).setAction("Action", new View
-                        .OnClickListener
-                        () {
-                    @Override
-                    public void onClick(View view) {
-                        startActivity(new Intent(mContext, SetMirrorActivity.class));
-                    }
-                });
-            }
-        });
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
+                this, binding.drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        binding.drawerLayout.addDrawerListener(toggle);
+        toggle.setHomeAsUpIndicator(R.drawable.ic_weather_rain);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
+        binding.navView.setNavigationItemSelectedListener(this);
+        attentionView = (RecyclerView) findViewById(R.id.recyclerView);
+        attentionView.setHasFixedSize(true);
+        attentionAdapter = new AttentionAdapter(attentionDatas);
+        attentionView.setAdapter(attentionAdapter);
+        attentionAdapter.setEvent(new NewsEvent() {
+            @Override public void onItemClick(NewsEntity entity) {
+                MUtils.toast("未实现");
+            }
+        });
+    }
+
+    @Override protected void onStart() {
+        super.onStart();
+        timeHandler.post(timeRunnable);
+    }
+
+    @Override protected void onStop() {
+        super.onStop();
+        timeHandler.removeCallbacks(timeRunnable);
+    }
+
+    private void getAttention() {
+        HttpMethods.getInstance().getNewsList(new MySubscriber<List<NewsEntity>>() {
+            @Override public void onCompleted() {
+
+            }
+
+            @Override public void onNext(List<NewsEntity> newsEntities) {
+                attentionDatas.clear();
+                attentionDatas.addAll(newsEntities);
+                attentionAdapter.notifyDataSetChanged();
+            }
+        }, this);
     }
 
     @Override
@@ -99,19 +133,27 @@ public class MainActivity extends BaseActivity
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
         switch (item.getItemId()) {
             case R.id.nav_personal: {
-                startActivity(new Intent(mContext, LoginActivity.class));
-                break;
-            }
-            case R.id.nav_stock: {
                 startActivity(new Intent(mContext, MeActivity.class));
-                break;
-            }
-            case R.id.nav_calendar: {
-                startActivity(new Intent(mContext, WifiListActivity.class));
                 break;
             }
             case R.id.nav_news: {
                 startActivity(new Intent(mContext, NewsActivity.class));
+                break;
+            }
+            case R.id.nav_stock: {
+                MUtils.toast("未实现");
+                break;
+            }
+            case R.id.nav_traffic: {
+                MUtils.toast("未实现");
+                break;
+            }
+            case R.id.nav_calendar: {
+                MUtils.toast("未实现");
+                break;
+            }
+            case R.id.nav_remind: {
+                MUtils.toast("未实现");
                 break;
             }
             case R.id.nav_settings: {
@@ -121,8 +163,7 @@ public class MainActivity extends BaseActivity
             break;
         }
         transaction.commit();
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
+        binding.drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
 }

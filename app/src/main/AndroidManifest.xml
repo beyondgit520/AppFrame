@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.app">
+<manifest package="com.app"
+          xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.CALL_PHONE"/>
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
     <!-- 允许程序改变网络链接状态 -->
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
@@ -41,66 +42,95 @@
         <activity
             android:name=".module.login.LoginActivity"
             android:label="@string/title_activity_login"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
             android:name=".module.login.MultiActivity"
             android:label="@string/title_activity_change_psd"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
             android:name=".module.setting.LanguageSetActivity"
             android:label="@string/title_activity_language_set"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
             android:name=".module.setting.SettingActivity"
             android:label="@string/title_activity_setting"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
             android:name=".module.setting.AboutAppActivity"
             android:label="@string/title_activity_about_app"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
             android:name=".module.setting.AboutUsActivity"
             android:label="@string/title_activity_about_us"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
             android:name=".module.news.AddKeyActivity"
             android:label="@string/title_activity_add_key"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
             android:name=".module.news.NewsActivity"
             android:label="@string/title_activity_news"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
             android:name=".module.me.SetMirrorActivity"
             android:label="@string/title_activity_set_mirror"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
             android:name=".module.wifi.WifiListActivity"
             android:label="@string/title_activity_wifi_list"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
             android:name=".module.wifi.BindWifiActivity"
             android:label="@string/title_activity_bind_wifi"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
             android:name=".module.wifi.PairingWifiActivity"
             android:label="@string/title_activity_pairing_wifi"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
             android:name=".module.me.MeActivity"
             android:label="@string/title_activity_me"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".base.WebActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".module.me.EditGenderActivity"
+            android:label="@string/title_activity_edit_gender"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".module.me.EditHeaderActivity"
+            android:label="@string/title_activity_edit_header"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
     </application>

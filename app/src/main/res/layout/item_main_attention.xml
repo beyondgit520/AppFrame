@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.app.module.news.entity.NewsEntity"/>
+
+        <variable
+            name="news"
+            type="NewsEntity"/>
+
+        <variable
+            name="event"
+            type="com.app.module.news.NewsEvent"/>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?selectableItemBackground"
+        android:onClick="@{() -> event.onItemClick(news)}">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_margin="@dimen/small_margin"
+            app:imageUrl="@{news.image}"/>
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/title_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/imageView"
+            android:layout_toRightOf="@id/imageView"
+            android:maxLines="2"
+            android:text="@{news.title}"
+            android:textColor="@color/white"/>
+
+        <android.support.v7.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/title_tv"
+            android:layout_toRightOf="@id/imageView"
+            android:maxLines="2"
+            android:text="@{news.description}"
+            android:textColor="@color/white"
+            android:textSize="10sp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.3dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="@dimen/small_margin"
+            android:layout_marginRight="@dimen/small_margin"
+            android:background="@color/white"/>
+    </RelativeLayout>
+</layout>

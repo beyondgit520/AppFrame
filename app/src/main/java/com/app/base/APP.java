@@ -10,6 +10,8 @@ import android.os.Build;
 import com.app.utils.MUtils;
 import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.squareup.leakcanary.LeakCanary;
 
 import java.util.ArrayList;
@@ -55,6 +57,12 @@ public class APP extends Application {
             config.locale = getSetLocale();
         }
         getApplicationContext().getResources().updateConfiguration(config, getApplicationContext().getResources().getDisplayMetrics());
+        // Create global configuration and initialize ImageLoader with this config
+        ImageLoaderConfiguration imageLoaderConfiguration = new ImageLoaderConfiguration.Builder(this)
+                .diskCacheFileCount(50)
+                .memoryCacheSize(5 * 1024 * 1024)
+                .build();
+        ImageLoader.getInstance().init(imageLoaderConfiguration);
     }
 
     public List<Activity> getActivities() {

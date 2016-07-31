@@ -1,8 +1,12 @@
 package com.app.http;
 
 import com.app.Testbean;
+import com.app.module.news.entity.NewsEntity;
+
+import java.util.List;
 
 import retrofit2.http.GET;
+import retrofit2.http.Headers;
 import retrofit2.http.Query;
 import rx.Observable;
 
@@ -16,6 +20,8 @@ public interface ApiService {
      * @param sort 排序1：最新，2：活动
      * @return
      */
-    @GET("stylebook/public_list")
-    Observable<HttpResult<Testbean>> getStyleList(@Query("p") int p, @Query("ps") int ps, @Query("sort") int sort);
+    @GET("stylebook/public_list") Observable<HttpResult<Testbean>> getStyleList(@Query("p") int p, @Query("ps") int ps, @Query("sort") int sort);
+
+    @Headers("apikey: ")
+    @GET("http://apis.baidu.com/songshuxiansheng/news/news") Observable<HttpResult<List<NewsEntity>>> getNewsList();
 }

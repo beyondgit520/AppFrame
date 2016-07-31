@@ -2,14 +2,12 @@ package com.app.module.login;
 
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
-import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -48,20 +46,6 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login);
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN) {
-            getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                    WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        } else {
-            View decorView = getWindow().getDecorView();
-            int uiOptions = View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                    | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                    | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                    | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                    | View.SYSTEM_UI_FLAG_FULLSCREEN
-                    | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-                    | View.SYSTEM_UI_FLAG_IMMERSIVE;
-            decorView.setSystemUiVisibility(uiOptions);
-        }
         binding.setAdapter(this);
         initFaceBook();
         initGoogle();
@@ -159,7 +143,7 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
 
     public void forgotPwd() {
         Intent intent = new Intent(mContext, MultiActivity.class);
-        intent.putExtra("TYPE", MultiActivity.FORGOT_PWD);
+        intent.putExtra("TYPE", MultiActivity.FORGOT_PWD_1);
         startActivity(intent);
     }
 

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.app.module.setting.LanguageSetActivity">
+    tools:context="com.app.module.me.EditGenderActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -29,7 +29,7 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <RadioGroup
-            android:id="@+id/language_rg"
+            android:id="@+id/gender_rg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -40,14 +40,14 @@
                 android:background="?android:listDivider"/>
 
             <android.support.v7.widget.AppCompatRadioButton
-                android:id="@+id/zh_rb"
+                android:id="@+id/male_rb"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="?selectableItemBackground"
                 android:button="@null"
                 android:drawableRight="@drawable/radiobutton_selector"
                 android:padding="16dp"
-                android:text="中文"/>
+                android:text="@string/male"/>
 
             <View
                 android:layout_width="match_parent"
@@ -55,20 +55,29 @@
                 android:background="?android:listDivider"/>
 
             <android.support.v7.widget.AppCompatRadioButton
-                android:id="@+id/en_rb"
+                android:id="@+id/female_rb"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="?selectableItemBackground"
                 android:button="@null"
                 android:drawableRight="@drawable/radiobutton_selector"
                 android:padding="16dp"
-                android:text="English"/>
+                android:text="@string/female"/>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
                 android:background="?android:listDivider"/>
         </RadioGroup>
+
+        <android.support.v7.widget.AppCompatButton
+            style="@style/NormalButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/gender_rg"
+            android:layout_margin="@dimen/normal_margin"
+            android:onClick="submit"
+            android:text="@string/submit"/>
     </RelativeLayout>
 
 

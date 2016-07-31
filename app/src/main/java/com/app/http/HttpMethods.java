@@ -3,9 +3,11 @@ package com.app.http;
 
 import com.app.Testbean;
 import com.app.base.BaseActivity;
+import com.app.module.news.entity.NewsEntity;
 import com.app.utils.Logger;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.Interceptor;
@@ -26,7 +28,7 @@ import rx.schedulers.Schedulers;
  */
 public class HttpMethods {
 
-    public static final String BASE_URL = "https://api-shein.yubapp.com/";
+    public static final String BASE_URL = "";
 
     private static final int DEFAULT_TIMEOUT = 10;
 
@@ -64,17 +66,9 @@ public class HttpMethods {
         apiService = retrofit.create(ApiService.class);
     }
 
-    /**
-     * 创建单例
-     */
-    private static class SinglenHolder {
-        private static final HttpMethods INSTANCE = new HttpMethods();
-    }
-
     public static HttpMethods getInstance() {
         return SinglenHolder.INSTANCE;
     }
-
 
     /**
      * 请求方法开始
@@ -86,6 +80,10 @@ public class HttpMethods {
                 , subscriber, activity);
     }
 
+    public void getNewsList(Subscriber<List<NewsEntity>> subscriber, BaseActivity activity) {
+        toSubscribe(apiService.getNewsList().map(new HttpResultFunc<List<NewsEntity>>())
+                , subscriber, activity);
+    }
 
     /**
      * 请求方法结束
@@ -97,6 +95,13 @@ public class HttpMethods {
                 .unsubscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(s);
+    }
+
+    /**
+     * 创建单例
+     */
+    private static class SinglenHolder {
+        private static final HttpMethods INSTANCE = new HttpMethods();
     }
 
     /**
@@ -115,7 +120,7 @@ public class HttpMethods {
         }
     }
 
-    private class ActivityFunc<T> implements Func1<T,Observable<HttpResult>> {
+    private class ActivityFunc<T> implements Func1<T, Observable<HttpResult>> {
 
 
         @Override

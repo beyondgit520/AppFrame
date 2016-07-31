@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">MeRaw</string>
-    <string name="facebook_app_id">603412763168189</string>
+    <string name="facebook_app_id" translatable="false">603412763168189</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="app_about">About MeRaw</string>
@@ -56,4 +56,27 @@
     <string name="registered_members">Registered members</string>
     <string name="register_now">Register now</string>
     <string name="title_activity_me">MeActivity</string>
+    <string name="gender">Gender</string>
+    <string name="male">Male</string>
+    <string name="female">female</string>
+    <string name="phone_number">Mobile Phone</string>
+    <string name="facebook" translatable="false">Facebook</string>
+    <string name="google" translatable="false">Google+</string>
+    <string name="wifi" translatable="false">WI-FI</string>
+    <string name="change_pwd">Change Password</string>
+    <string name="email">Email</string>
+    <string name="binding">Binding</string>
+    <string name="unbind">Unbind</string>
+    <string name="title_my_mobile_phone">My mobile phone</string>
+    <string name="enter_your_bind_mobile">Please enter your binding mobile phone number</string>
+    <string name="enter_verification_code">Input validation code</string>
+    <string name="enter_binding_mobile_email">Please input is binding mobile phone number/email</string>
+    <string name="save">Save</string>
+    <string name="set_email">Set email</string>
+    <string name="enter_your_bind_email">Please enter your binding email</string>
+    <string name="modify_nickname">Modify the nickname</string>
+    <string name="submit">Submit</string>
+    <string name="title_activity_edit_gender">Gender</string>
+    <string name="title_activity_edit_header">Replace the picture</string>
+    <string name="change_header">Replace the picture</string>
 </resources>

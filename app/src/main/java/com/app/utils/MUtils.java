@@ -20,6 +20,8 @@ import android.widget.Toast;
 
 import com.app.base.APP;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -234,5 +236,10 @@ public class MUtils {
     public static boolean isSetValue() {
         Locale currentLocale = APP.getContext().getResources().getConfiguration().locale;
         return currentLocale.equals(APP.getSetLocale());
+    }
+
+    public static String timeFormate(int time) {
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault());
+        return format.format(new Date(time * 1000));
     }
 }

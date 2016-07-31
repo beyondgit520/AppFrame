@@ -54,4 +54,26 @@
     <string name="login">登录</string>
     <string name="get_verification_code">获取验证码</string>
     <string name="registered_members">会员注册</string>
+    <string name="title_activity_me">会员中心</string>
+    <string name="gender">性别</string>
+    <string name="male">男</string>
+    <string name="female">女</string>
+    <string name="phone_number">手机号</string>
+    <string name="register_now">现在注册</string>
+    <string name="change_pwd">修改密码</string>
+    <string name="email">邮箱</string>
+    <string name="binding">绑定</string>
+    <string name="unbind">解绑</string>
+    <string name="enter_your_bind_mobile">请输入您要绑定的手机号</string>
+    <string name="enter_verification_code">请输入验证码</string>
+    <string name="title_my_mobile_phone">我的手机号</string>
+    <string name="enter_binding_mobile_email">请输入已绑定的手机号/邮箱</string>
+    <string name="save">保存</string>
+    <string name="set_email">邮箱设置</string>
+    <string name="enter_your_bind_email">请输入您要绑定的邮箱</string>
+    <string name="modify_nickname">修改昵称</string>
+    <string name="submit">提交</string>
+    <string name="title_activity_edit_gender">性别</string>
+    <string name="change_header">更换头像</string>
+    <string name="title_activity_edit_header">更换头像</string>
 </resources>

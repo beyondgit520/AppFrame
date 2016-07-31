@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="recyclerview_linearlayout_manager" translatable="false">android.support.v7.widget.LinearLayoutManager</string>
+    <string name="recyclerview_gridlayout_manager" translatable="false">android.support.v7.widget.GridLayoutManager</string>
+    <string name="recyclerview_staggered_gridLayout_manager" translatable="false">android.support.v7.widget.StaggeredGridLayoutManager</string>
+</resources>
