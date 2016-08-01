@@ -13,6 +13,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.app.base.BaseActivity;
 import com.app.databinding.ActivityMainBinding;
@@ -37,7 +38,8 @@ public class MainActivity extends BaseActivity
     private List<NewsEntity> attentionDatas = new ArrayList<>();
     private Handler timeHandler = new Handler();
     private Runnable timeRunnable = new Runnable() {
-        @Override public void run() {
+        @Override
+        public void run() {
             getAttention();
             timeHandler.postDelayed(this, 10 * 1000);
         }
@@ -48,13 +50,20 @@ public class MainActivity extends BaseActivity
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setNavigationIcon(R.drawable.ic_drawer_indicator);
         toolbar.setTitle(R.string.menu);
         setSupportActionBar(toolbar);
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, binding.drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         binding.drawerLayout.addDrawerListener(toggle);
-        toggle.setHomeAsUpIndicator(R.drawable.ic_weather_rain);
+        toggle.setDrawerIndicatorEnabled(false);
+        toggle.setToolbarNavigationClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                binding.drawerLayout.openDrawer(GravityCompat.START);
+            }
+        });
         toggle.syncState();
 
         binding.navView.setNavigationItemSelectedListener(this);
@@ -63,29 +72,34 @@ public class MainActivity extends BaseActivity
         attentionAdapter = new AttentionAdapter(attentionDatas);
         attentionView.setAdapter(attentionAdapter);
         attentionAdapter.setEvent(new NewsEvent() {
-            @Override public void onItemClick(NewsEntity entity) {
+            @Override
+            public void onItemClick(NewsEntity entity) {
                 MUtils.toast("未实现");
             }
         });
     }
 
-    @Override protected void onStart() {
+    @Override
+    protected void onStart() {
         super.onStart();
         timeHandler.post(timeRunnable);
     }
 
-    @Override protected void onStop() {
+    @Override
+    protected void onStop() {
         super.onStop();
         timeHandler.removeCallbacks(timeRunnable);
     }
 
     private void getAttention() {
         HttpMethods.getInstance().getNewsList(new MySubscriber<List<NewsEntity>>() {
-            @Override public void onCompleted() {
+            @Override
+            public void onCompleted() {
 
             }
 
-            @Override public void onNext(List<NewsEntity> newsEntities) {
+            @Override
+            public void onNext(List<NewsEntity> newsEntities) {
                 attentionDatas.clear();
                 attentionDatas.addAll(newsEntities);
                 attentionAdapter.notifyDataSetChanged();

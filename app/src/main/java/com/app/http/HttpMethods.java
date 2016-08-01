@@ -28,7 +28,7 @@ import rx.schedulers.Schedulers;
  */
 public class HttpMethods {
 
-    public static final String BASE_URL = "";
+    public static final String BASE_URL = "http://apis.baidu.com/";
 
     private static final int DEFAULT_TIMEOUT = 10;
 

@@ -24,7 +24,7 @@ public class PairingWifiActivity extends BaseActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
-        menu.getItem(0).setIcon(R.drawable.ic_upload_24dp);
+        menu.getItem(0).setIcon(R.drawable.ic_upload_mirror);
         menu.getItem(0).setTitle("");
         return true;
     }
