@@ -4,6 +4,7 @@ package com.app.http;
 import com.app.Testbean;
 import com.app.base.BaseActivity;
 import com.app.module.news.entity.NewsEntity;
+import com.app.module.stock.entity.Stockinfo;
 import com.app.utils.Logger;
 
 import java.io.IOException;
@@ -46,6 +47,7 @@ public class HttpMethods {
                         .addHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8")
                         .addHeader("Connection", "keep-alive")
                         .addHeader("Accept", "*/*")
+                        .addHeader("apikey", "ea08a0a01fbf0eee3928f561c6cd08e0")
                         .build();
                 long t1 = System.nanoTime();
                 Logger.d("retrofit", String.format("Sending request %s on %s%n%s",
@@ -82,6 +84,11 @@ public class HttpMethods {
 
     public void getNewsList(Subscriber<List<NewsEntity>> subscriber, BaseActivity activity) {
         toSubscribe(apiService.getNewsList().map(new HttpResultFunc<List<NewsEntity>>())
+                , subscriber, activity);
+    }
+
+    public void searchStock(Subscriber<Stockinfo> subscriber, BaseActivity activity, String stockids, int list) {
+        toSubscribe(apiService.searchStock(stockids, list).map(new HttpResultFunc<Stockinfo>())
                 , subscriber, activity);
     }
 

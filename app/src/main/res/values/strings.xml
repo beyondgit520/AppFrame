@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MeRaw</string>
+    <string name="app_name" translatable="false">MeRaw</string>
     <string name="facebook_app_id" translatable="false">603412763168189</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -79,4 +79,8 @@
     <string name="title_activity_edit_gender">Gender</string>
     <string name="title_activity_edit_header">Replace the picture</string>
     <string name="change_header">Replace the picture</string>
+    <string name="title_activity_stock_search">Search</string>
+    <string name="search">Search</string>
+    <string name="hint_stock_search">Please enter the name of the company or stock symbo</string>
+    <string name="title_activity_stock">StockActivity</string>
 </resources>

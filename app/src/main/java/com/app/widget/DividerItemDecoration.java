@@ -5,7 +5,6 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.IdRes;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -30,7 +29,7 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
         setOrientation(orientation);
     }
 
-    public DividerItemDecoration(Context context, int orientation, @IdRes int decoration) {
+    public DividerItemDecoration(Context context, int orientation, int decoration) {
         mDivider = ContextCompat.getDrawable(context, decoration);
         setOrientation(orientation);
     }

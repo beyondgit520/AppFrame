@@ -25,6 +25,7 @@ import com.app.module.news.NewsActivity;
 import com.app.module.news.NewsEvent;
 import com.app.module.news.entity.NewsEntity;
 import com.app.module.setting.SettingActivity;
+import com.app.module.stock.StockActivity;
 import com.app.utils.MUtils;
 
 import java.util.ArrayList;
@@ -155,7 +156,7 @@ public class MainActivity extends BaseActivity
                 break;
             }
             case R.id.nav_stock: {
-                MUtils.toast("未实现");
+                startActivity(new Intent(mContext, StockActivity.class));
                 break;
             }
             case R.id.nav_traffic: {
