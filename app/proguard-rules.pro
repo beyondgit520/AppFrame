@@ -18,3 +18,44 @@
 -dontwarn sun.misc.**
 -dontwarn okio.**
 -dontwarn retrofit2.**
+
+##---------------Begin: proguard configuration for Gson ----------
+#-keep public class com.google.gson.**
+#-keep public class com.google.gson.** {public private protected *;}
+
+#-keepattributes Signature
+#-keepattributes *Annotation*
+#-keep public class com.app.module.me.entity.** { public private protected *; }
+#-keep public class com.app.module.news.entity.** { public private protected *; }
+#-keep public class com.app.module.stock.entity.** { public private protected *; }
+
+##---------------End: proguard configuration for Gson ----------
+
+#okhttp start
+#-dontwarn okhttp3.**
+#-keep class okhttp3.** { *;}
+#-dontwarn okio.**
+#okhttp end
+
+#retrofit start
+#-dontwarn retrofit2.**
+#-keep class retrofit2.** { *; }
+-keepattributes Signature
+-keepattributes Exceptions
+#retrofit end
+
+
+
+#rx start
+#-dontwarn sun.misc.**
+-keepclassmembers class rx.internal.util.unsafe.*ArrayQueue*Field* {
+   long producerIndex;
+   long consumerIndex;
+}
+-keepclassmembers class rx.internal.util.unsafe.BaseLinkedQueueProducerNodeRef {
+    rx.internal.util.atomic.LinkedQueueNode producerNode;
+}
+-keepclassmembers class rx.internal.util.unsafe.BaseLinkedQueueConsumerNodeRef {
+    rx.internal.util.atomic.LinkedQueueNode consumerNode;
+}
+#rx end

@@ -4,7 +4,6 @@ import android.databinding.BindingAdapter;
 import android.graphics.drawable.Drawable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
 import android.widget.ImageView;
 
 import com.app.R;
@@ -29,14 +28,6 @@ public class CustomMethods {
     @BindingAdapter("imageUrl")
     public static void loadImage(ImageView view, String url) {
         ImageLoader.getInstance().displayImage(url, view, options);
-    }
-
-    @BindingAdapter("android:paddingLeft")
-    public static void setPaddingLeft(View view, int padding) {
-        view.setPadding(padding,
-                padding * 3,
-                view.getPaddingRight(),
-                view.getPaddingBottom());
     }
 
     @BindingAdapter("adapter")

@@ -178,7 +178,7 @@ public class MainActivity extends BaseActivity
             break;
         }
         transaction.commit();
-        binding.drawerLayout.closeDrawer(GravityCompat.START);
+//        binding.drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
 }

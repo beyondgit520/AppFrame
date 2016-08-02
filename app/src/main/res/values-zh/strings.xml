@@ -78,4 +78,6 @@
     <string name="search">搜索</string>
     <string name="title_activity_stock_search">搜索</string>
     <string name="hint_stock_search">请输入公司名称或者股票代号</string>
+    <string name="title_activity_stock">股票信息</string>
+    <string name="equity_market">股票市场</string>
 </resources>

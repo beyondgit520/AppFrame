@@ -5,6 +5,7 @@ import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -16,7 +17,6 @@ import com.app.http.MySubscriber;
 import com.app.module.stock.entity.StockEntity;
 import com.app.module.stock.entity.Stockinfo;
 import com.app.utils.MUtils;
-import com.app.widget.DividerItemDecoration;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,9 +36,28 @@ public class StockActivity extends BaseActivity implements SwipeRefreshLayout.On
         binding.recyclerView.setHasFixedSize(true);
         adapter = new StockAdapter(stockEntities);
         binding.recyclerView.setAdapter(adapter);
-        binding.recyclerView.addItemDecoration(new DividerItemDecoration(mContext, LinearLayoutManager.VERTICAL, R
-                .drawable.divider_mini_white));
         getdata(true);
+        binding.header.post(new Runnable() {
+            @Override public void run() {
+                binding.recyclerView.setPadding(MUtils.dip2px(16), binding.header.getHeight(), MUtils.dip2px(16), MUtils.dip2px(16));
+            }
+        });
+        binding.recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+            }
+
+            @Override public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                float currentY = binding.header.getTranslationY();
+                float result = currentY - dy;
+                result = result > 0 ? 0 : result;
+                result = result <= -binding.header.getHeight() ? -binding.header.getHeight() : result;
+                if (dy > 0 || ((LinearLayoutManager) binding.recyclerView.getLayoutManager()).findFirstVisibleItemPosition() == 0) {
+                    binding.header.setTranslationY(result);
+                }
+            }
+        });
     }
 
     private void getdata(final boolean isRefresh) {
@@ -61,7 +80,7 @@ public class StockActivity extends BaseActivity implements SwipeRefreshLayout.On
                 stockEntities.addAll(stockinfo.getStockinfo());
                 adapter.notifyDataSetChanged();
             }
-        }, this, "sina,bidu,shi,appl", 1);
+        }, this, "sina,bidu,shi,sohu,nok,aapl,msft,goog,amzn,intc", 1);
     }
 
     @Override

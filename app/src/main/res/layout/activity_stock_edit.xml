@@ -4,10 +4,11 @@
         xmlns:tools="http://schemas.android.com/tools">
 
     <android.support.design.widget.CoordinatorLayout
+
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
-        tools:context="com.app.module.stock.StockActivity">
+        tools:context="com.app.module.stock.StockEditActivity">
 
         <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
@@ -19,7 +20,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:background="?attr/colorPrimary"
-                app:layout_scrollFlags="scroll|exitUntilCollapsed"
                 app:popupTheme="@style/AppTheme.PopupOverlay"/>
 
         </android.support.design.widget.AppBarLayout>
@@ -27,8 +27,6 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/black_p"
-            android:clipToPadding="false"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
             <android.support.v4.widget.SwipeRefreshLayout
@@ -44,32 +42,9 @@
                     android:paddingBottom="@dimen/activity_vertical_margin"
                     android:paddingLeft="@dimen/activity_horizontal_margin"
                     android:paddingRight="@dimen/activity_horizontal_margin"
-                    android:paddingTop="70dp"
                     app:customDecoration="@{@drawable/divider_mini_white}"
                     app:layoutManager="@string/recyclerview_linearlayout_manager"/>
             </android.support.v4.widget.SwipeRefreshLayout>
-
-            <android.support.v7.widget.LinearLayoutCompat
-                android:id="@+id/header"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="vertical"
-                android:paddingLeft="@dimen/activity_horizontal_margin"
-                android:paddingRight="@dimen/activity_horizontal_margin"
-                app:divider="@drawable/home_while_line"
-                app:showDividers="end">
-
-                <android.support.v7.widget.AppCompatTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_margin="@dimen/small_margin"
-                    android:drawableLeft="@drawable/ic_stock_header"
-                    android:gravity="center"
-                    android:text="@string/equity_market"
-                    android:textColor="@color/white"/>
-            </android.support.v7.widget.LinearLayoutCompat>
         </RelativeLayout>
 
     </android.support.design.widget.CoordinatorLayout>

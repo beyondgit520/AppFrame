@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.app">
+<manifest package="com.app"
+          xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.CALL_PHONE"/>
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -131,16 +131,24 @@
         <activity
             android:name=".module.me.EditHeaderActivity"
             android:label="@string/title_activity_edit_header"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
             android:name=".module.stock.StockSearchActivity"
             android:label="@string/title_activity_stock_search"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
             android:name=".module.stock.StockActivity"
             android:label="@string/title_activity_stock"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".module.stock.StockEditActivity"
+            android:label="@string/title_activity_stock_edit"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
     </application>
