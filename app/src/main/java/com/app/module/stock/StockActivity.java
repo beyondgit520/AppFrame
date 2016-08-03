@@ -94,7 +94,7 @@ public class StockActivity extends BaseActivity implements SwipeRefreshLayout.On
         if (item.getItemId() == android.R.id.home)
             onBackPressed();
         else if (item.getItemId() == R.id.action_add) {
-            startActivity(new Intent(mContext, StockSearchActivity.class));
+            startActivity(new Intent(mContext, StockEditActivity.class));
         } else if (item.getItemId() == R.id.action_mirror) {
             MUtils.toast("mirror");
         }

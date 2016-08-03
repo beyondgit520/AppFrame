@@ -1,7 +1,6 @@
 package com.app.http;
 
 
-import com.app.Testbean;
 import com.app.base.BaseActivity;
 import com.app.module.news.entity.NewsEntity;
 import com.app.module.stock.entity.Stockinfo;
@@ -75,12 +74,6 @@ public class HttpMethods {
     /**
      * 请求方法开始
      */
-
-
-    public void getStyleList(Subscriber<Testbean> subscriber, BaseActivity activity, int p, int ps, int sort) {
-        toSubscribe(apiService.getStyleList(p, ps, sort).map(new HttpResultFunc<Testbean>())
-                , subscriber, activity);
-    }
 
     public void getNewsList(Subscriber<List<NewsEntity>> subscriber, BaseActivity activity) {
         toSubscribe(apiService.getNewsList().map(new HttpResultFunc<List<NewsEntity>>())
