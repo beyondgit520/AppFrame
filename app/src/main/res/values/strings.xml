@@ -86,4 +86,5 @@
     <string name="equity_market">Equity Market</string>
     <string name="title_activity_stock_edit">Equity Market</string>
     <string name="title_activity_stock_add_key">StockAddKeyActivity</string>
+    <string name="title_activity_gallery">GalleryActivity</string>
 </resources>
