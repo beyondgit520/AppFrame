@@ -6,6 +6,6 @@
         android:color="#60ffffff"
         android:dashGap="2dp"
         android:dashWidth="2dp"/>
-    <!-- 虚线的高度 -->
+    <!-- 虚线的高度 mirror-->
     <size android:height="1.5dp"/>
 </shape>
