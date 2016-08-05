@@ -87,4 +87,7 @@
     <string name="title_activity_stock_edit">Equity Market</string>
     <string name="title_activity_stock_add_key">StockAddKeyActivity</string>
     <string name="title_activity_gallery">GalleryActivity</string>
+    <string name="from_camera">From Camera</string>
+    <string name="from_gallery">From Gallery</string>
+    <string name="cancel">Cancel</string>
 </resources>

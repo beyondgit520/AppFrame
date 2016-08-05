@@ -69,3 +69,7 @@
     rx.internal.util.atomic.LinkedQueueNode consumerNode;
 }
 #rx end
+
+-keep class cn.finalteam.galleryfinal.widget.*{*;}
+-keep class cn.finalteam.galleryfinal.widget.crop.*{*;}
+-keep class cn.finalteam.galleryfinal.widget.zoonview.*{*;}

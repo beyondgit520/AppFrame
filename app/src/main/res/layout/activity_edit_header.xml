@@ -38,9 +38,7 @@
                 android:layout_width="140dp"
                 android:layout_height="140dp"
                 android:layout_centerHorizontal="true"
-                android:layout_margin="@dimen/large_margin"
-                android:background="@drawable/black_circle_shape"
-                android:padding="2dp"/>
+                android:layout_margin="@dimen/large_margin"/>
 
             <android.support.v7.widget.AppCompatButton
                 style="@style/NormalButton"
@@ -48,6 +46,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/header"
                 android:layout_centerHorizontal="true"
+                android:onClick="selectHeader"
                 android:text="@string/change_header"/>
         </RelativeLayout>
 

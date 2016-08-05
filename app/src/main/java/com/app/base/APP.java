@@ -7,7 +7,9 @@ import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Build;
 
+import com.app.R;
 import com.app.utils.MUtils;
+import com.app.utils.UILImageLoader;
 import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -17,6 +19,11 @@ import com.squareup.leakcanary.LeakCanary;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+
+import cn.finalteam.galleryfinal.CoreConfig;
+import cn.finalteam.galleryfinal.FunctionConfig;
+import cn.finalteam.galleryfinal.GalleryFinal;
+import cn.finalteam.galleryfinal.ThemeConfig;
 
 /**
  * Created by Administrator on 2016/7/6.
@@ -63,6 +70,31 @@ public class APP extends Application {
                 .memoryCacheSize(5 * 1024 * 1024)
                 .build();
         ImageLoader.getInstance().init(imageLoaderConfiguration);
+        initGalleryFinal();
+    }
+
+    private void initGalleryFinal() {//ThemeConfig.CYAN
+        ThemeConfig theme = new ThemeConfig.Builder()
+                .setTitleBarBgColor(getResources().getColor(R.color.black))
+                .setIconBack(R.drawable.ic_navigation)
+                .setFabNornalColor(getResources().getColor(R.color.black))
+                .setFabPressedColor(getResources().getColor(R.color.black_p))
+                .build();
+
+        //配置功能
+        FunctionConfig functionConfig = new FunctionConfig.Builder()
+                .setEnableCamera(true)
+                .setEnableCrop(true)
+                .setCropSquare(true)
+                .setEnablePreview(true)
+                .build();
+        //配置imageloader
+        cn.finalteam.galleryfinal.ImageLoader imageloader = new UILImageLoader();
+        //设置核心配置信息
+        CoreConfig coreConfig = new CoreConfig.Builder(context, imageloader, theme)
+                .setFunctionConfig(functionConfig)
+                .build();
+        GalleryFinal.init(coreConfig);
     }
 
     public List<Activity> getActivities() {
