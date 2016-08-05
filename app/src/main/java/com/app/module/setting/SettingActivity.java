@@ -8,9 +8,11 @@ import android.view.View;
 import android.widget.CompoundButton;
 
 import com.app.R;
+import com.app.base.APP;
 import com.app.base.BaseActivity;
 import com.app.databinding.ActivitySettingBinding;
 import com.app.utils.MUtils;
+import com.app.utils.SPUtils;
 
 public class SettingActivity extends BaseActivity implements CompoundButton.OnCheckedChangeListener {
     private ActivitySettingBinding binding;
@@ -37,6 +39,8 @@ public class SettingActivity extends BaseActivity implements CompoundButton.OnCh
 
     public void logOut(View view) {
         MUtils.showSBar(view, "logout");
+        SPUtils.put(APP.getContext(), "loginInfo", "");
+        APP.setLoginInfo(null);
     }
 
     public void languageSet(View view) {

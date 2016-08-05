@@ -10,13 +10,17 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.app.R;
+import com.app.base.APP;
 import com.app.base.BaseActivity;
 import com.app.databinding.ActivityLoginBinding;
+import com.app.http.HttpMethods;
+import com.app.http.MySubscriber;
+import com.app.module.login.entity.LoginInfo;
 import com.app.utils.Logger;
 import com.app.utils.MUtils;
+import com.app.utils.SPUtils;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
@@ -31,6 +35,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.gson.Gson;
 
 import org.json.JSONObject;
 
@@ -65,10 +70,39 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
     }
 
     public void signIn() {
-        Toast.makeText(mContext, binding.userNameTil.getEditText().getText().toString() + ":" + binding.userPsdTil
-                .getEditText().getText()
-                .toString(), Toast.LENGTH_SHORT).show();
-        startActivity(new Intent(this, MultiActivity.class));
+        String email = binding.userNameTil.getEditText().getText().toString();
+        String pwd = binding.userPsdTil.getEditText().getText().toString();
+        if (!TextUtils.isDigitsOnly(email)) {
+            if (!MUtils.isEmail(email)) {
+                MUtils.toast("邮箱格式不对");
+                return;
+            }
+        }
+        if (pwd.length() < 6) {
+            MUtils.toast("密码最少6位");
+            return;
+        }
+
+        HttpMethods.getInstance().emailLogin(new MySubscriber<LoginInfo>() {
+            @Override public void onStart() {
+                super.onStart();
+                progressDialog.show();
+            }
+
+            @Override public void onCompleted() {
+                progressDialog.dismiss();
+            }
+
+            @Override public void onError(Throwable e) {
+                super.onError(e);
+                progressDialog.dismiss();
+            }
+
+            @Override public void onNext(LoginInfo loginInfo) {
+                APP.setLoginInfo(loginInfo);
+                SPUtils.put(APP.getContext(), "loginInfo", new Gson().toJson(loginInfo));
+            }
+        }, this, email, pwd);
     }
 
     private void initFaceBook() {

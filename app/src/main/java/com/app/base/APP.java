@@ -6,12 +6,18 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Build;
+import android.text.TextUtils;
 
 import com.app.R;
+import com.app.module.login.entity.LoginInfo;
+import com.app.module.login.entity.UserInfo;
+import com.app.utils.Logger;
 import com.app.utils.MUtils;
+import com.app.utils.SPUtils;
 import com.app.utils.UILImageLoader;
 import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
+import com.google.gson.Gson;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.squareup.leakcanary.LeakCanary;
@@ -30,7 +36,20 @@ import cn.finalteam.galleryfinal.ThemeConfig;
  */
 public class APP extends Application {
     private static Context context;
+    private static LoginInfo mloginInfo;
     private List<Activity> activities = new ArrayList<>();
+
+    public static LoginInfo getLoginInfo() {
+        return mloginInfo;
+    }
+
+    public static void setLoginInfo(LoginInfo loginInfo) {
+        mloginInfo = loginInfo;
+    }
+
+    public static UserInfo getUserInfo() {
+        return mloginInfo.extension.memberInfo;
+    }
 
     public static Context getContext() {
         return context;
@@ -51,6 +70,7 @@ public class APP extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        Logger.d("Application", "onCreate:" + (mloginInfo == null ? "null" : mloginInfo.memberId));
         context = getApplicationContext();
 //        Fresco.initialize(this);
         LeakCanary.install(this);
@@ -71,6 +91,10 @@ public class APP extends Application {
                 .build();
         ImageLoader.getInstance().init(imageLoaderConfiguration);
         initGalleryFinal();
+        String loginInfo = (String) SPUtils.get(context, "loginInfo", "");
+        if (!TextUtils.isEmpty(loginInfo)) {
+            setLoginInfo(new Gson().fromJson(loginInfo, LoginInfo.class));
+        }
     }
 
     private void initGalleryFinal() {//ThemeConfig.CYAN
@@ -107,5 +131,10 @@ public class APP extends Application {
 
     public void removeActivity(Activity activity) {
         if (activities.contains(activity)) activities.remove(activity);
+    }
+
+    @Override public void onTerminate() {
+        super.onTerminate();
+        Logger.d("Application", "onTerminate");
     }
 }

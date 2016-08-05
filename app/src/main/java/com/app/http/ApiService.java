@@ -1,5 +1,6 @@
 package com.app.http;
 
+import com.app.module.login.entity.LoginInfo;
 import com.app.module.news.entity.NewsEntity;
 import com.app.module.stock.entity.Stockinfo;
 
@@ -21,4 +22,6 @@ public interface ApiService {
 
     @GET("http://apis.baidu.com/apistore/stockservice/usastock")
     Observable<HttpResult<Stockinfo>> searchStock(@Query("stockid") String stockids, @Query("list") int list);
+
+    @GET("https://android.shein.com/index.php") Observable<HttpResult<LoginInfo>> emailLogin(@Query("model") String model, @Query("action") String action, @Query("email") String email, @Query("password") String pwd);
 }

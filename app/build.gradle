@@ -37,7 +37,7 @@ android {
             signingConfig signingConfigs.release
         }
         debug {
-            minifyEnabled true
+            minifyEnabled false
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
@@ -64,4 +64,5 @@ dependencies {
     compile 'com.google.android.gms:play-services-auth:9.2.1'
     compile 'com.facebook.android:facebook-android-sdk:4.14.0'
     compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
+    compile 'cn.finalteam:galleryfinal:1.4.8.7'
 }

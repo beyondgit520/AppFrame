@@ -7,13 +7,13 @@ import com.google.gson.annotations.SerializedName;
  * Created by limin on 2016/7/4.
  */
 public class HttpResult<T> {
-    @SerializedName("errNum") @Expose public Integer ret;
+    @SerializedName("code") @Expose public Integer ret;
     @SerializedName("timestamp") @Expose public Integer timestamp;
-    @SerializedName("errMsg") @Expose public String msg;
+    @SerializedName("msg") @Expose public String msg;
     /**
      * 实际的data
      */
-    @SerializedName("retData")
+    @SerializedName("info")
     private T data;
 
     public T getData() {

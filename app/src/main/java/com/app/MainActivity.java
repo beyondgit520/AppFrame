@@ -15,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.app.base.APP;
 import com.app.base.BaseActivity;
 import com.app.databinding.ActivityMainBinding;
 import com.app.http.HttpMethods;
@@ -63,6 +64,7 @@ public class MainActivity extends BaseActivity
             @Override
             public void onClick(View view) {
                 binding.drawerLayout.openDrawer(GravityCompat.START);
+                MUtils.toast(APP.getLoginInfo() == null ? "未登录" : "已经登录");
             }
         });
         toggle.syncState();

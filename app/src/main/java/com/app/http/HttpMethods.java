@@ -2,6 +2,7 @@ package com.app.http;
 
 
 import com.app.base.BaseActivity;
+import com.app.module.login.entity.LoginInfo;
 import com.app.module.news.entity.NewsEntity;
 import com.app.module.stock.entity.Stockinfo;
 import com.app.utils.Logger;
@@ -82,6 +83,12 @@ public class HttpMethods {
 
     public void searchStock(Subscriber<Stockinfo> subscriber, BaseActivity activity, String stockids, int list) {
         toSubscribe(apiService.searchStock(stockids, list).map(new HttpResultFunc<Stockinfo>())
+                , subscriber, activity);
+    }
+
+    public void emailLogin(Subscriber<LoginInfo> subscriber, BaseActivity activity, String email, String pwd) {
+        toSubscribe(apiService.emailLogin("login_register_ajax", "mobile_login", email, pwd)
+                        .map(new HttpResultFunc<LoginInfo>())
                 , subscriber, activity);
     }
 
