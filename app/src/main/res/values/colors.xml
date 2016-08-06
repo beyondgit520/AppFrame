@@ -8,4 +8,6 @@
     <color name="black_p">#aa161616</color>
     <color name="white">@android:color/white</color>
     <color name="transparent">#33000000</color>
+    <color name="colorMainText">#333333</color>
+    <color name="colorTabUnckecked">#999999</color>
 </resources>
