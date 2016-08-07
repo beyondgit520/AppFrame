@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        tools:context="com.app.module.calendar.AddRemindActivity">
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.AppBarOverlay">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                app:popupTheme="@style/AppTheme.PopupOverlay"/>
+
+        </android.support.design.widget.AppBarLayout>
+
+        <android.support.v7.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/large_padding"
+            app:divider="?android:listDivider"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            app:showDividers="beginning|middle">
+
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/titleEt"
+                style="@style/NormalEditText"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:hint="@string/title"/>
+
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/contentEt"
+                style="@style/NormalEditText"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:gravity="start"
+                android:hint="@string/content"/>
+
+            <android.support.v7.widget.AppCompatButton
+                style="@style/NormalButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/normal_margin"
+                android:layout_marginRight="@dimen/normal_margin"
+                android:layout_marginTop="@dimen/normal_margin"
+                android:text="@string/confirm_to_add"/>
+        </android.support.v7.widget.LinearLayoutCompat>
+
+
+    </android.support.design.widget.CoordinatorLayout>
+</layout>
+

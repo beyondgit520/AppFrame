@@ -66,4 +66,12 @@
         <item name="android:padding">@dimen/small_padding</item>
         <item name="android:background">@drawable/normal_edittext_selector</item>
     </style>
+
+    <style name="AppTheme.NormalText" parent="Base.TextAppearance.AppCompat.Body1">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="AppTheme.CheckBox" parent="Widget.AppCompat.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/checkbox_white_selector</item>
+    </style>
 </resources>

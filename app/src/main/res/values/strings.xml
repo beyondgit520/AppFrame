@@ -90,4 +90,11 @@
     <string name="from_camera">From Camera</string>
     <string name="from_gallery">From Gallery</string>
     <string name="cancel">Cancel</string>
+    <string name="title_activity_calendar">Calendar</string>
+    <string name="title_activity_remind">Reminders</string>
+    <string name="title_activity_add_remind">Add new event</string>
+    <string name="title">Title</string>
+    <string name="content">Content</string>
+    <string name="confirm_to_add">Confirm to add</string>
+    <string name="title_activity_all_remind">AllRemindActivity</string>
 </resources>
