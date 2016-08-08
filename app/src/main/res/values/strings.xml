@@ -98,4 +98,11 @@
     <string name="content">Content</string>
     <string name="confirm_to_add">Confirm to add</string>
     <string name="title_activity_all_remind">AllRemindActivity</string>
+    <string name="title_activity_weather">WeatherActivity</string>
+    <string name="title_activity_add_city">AddCityActivity</string>
+    <string name="pickerview_select_city">Select City</string>
+    <string name="pickerview_cancel">concel</string>
+    <string name="pickerview_submit">confirm</string>
+    <string name="title_activity_traffic">TrafficActivity</string>
+    <string name="title_activity_add_navigation">AddNavigationActivity</string>
 </resources>

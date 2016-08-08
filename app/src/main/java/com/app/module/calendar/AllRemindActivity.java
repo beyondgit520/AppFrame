@@ -40,7 +40,7 @@ public class AllRemindActivity extends BaseActivity implements AllRemindViewMode
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
         for (int i = 0; i < 10; i++) {
-            RemindEntity e = new RemindEntity(i, "title" + i, 1420041600l, "content" + i);
+            RemindEntity e = new RemindEntity(i, "title" + i, System.currentTimeMillis() / 1000, "content" + i);
             remindEntities.add(e);
         }
         binding.searchRecyclerview.setHasFixedSize(true);

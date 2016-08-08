@@ -31,10 +31,12 @@ public class AddEventActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_add_event);
         setSupportActionBar(binding.toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        if (getSupportActionBar() != null)
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         viewModel = new AddEventViewModel(mContext);
         binding.setViewModel(viewModel);
     }
+
 
     private void addCalender() {
         calanderURL = "content://com.android.calendar/calendars";
@@ -61,6 +63,7 @@ public class AddEventActivity extends BaseActivity {
         Calendar mCalendar = Calendar.getInstance();
         mCalendar.set(Calendar.HOUR_OF_DAY, 14);
         long start = mCalendar.getTime().getTime();
+        long stbrt = System.currentTimeMillis();
         //截止时间，如果需要设置一周或者一个月可以改截止日期即可
         mCalendar.set(Calendar.HOUR_OF_DAY, 15);
         long end = mCalendar.getTime().getTime();
@@ -102,7 +105,7 @@ public class AddEventActivity extends BaseActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.action_settings) {
-// TODO: 16-8-6 提交事件 
+            addCalender();
         } else {
             onBackPressed();
         }

@@ -20,16 +20,17 @@ import com.app.base.BaseActivity;
 import com.app.databinding.ActivityMainBinding;
 import com.app.http.HttpMethods;
 import com.app.http.MySubscriber;
-import com.app.module.calendar.AddEventActivity;
 import com.app.module.calendar.CalendarActivity;
 import com.app.module.calendar.RemindActivity;
 import com.app.module.main.AttentionAdapter;
 import com.app.module.me.MeActivity;
 import com.app.module.news.NewsActivity;
 import com.app.module.news.NewsEvent;
+import com.app.module.news.WeatherActivity;
 import com.app.module.news.entity.NewsEntity;
 import com.app.module.setting.SettingActivity;
 import com.app.module.stock.StockActivity;
+import com.app.module.traffic.TrafficActivity;
 import com.app.utils.MUtils;
 
 import java.util.ArrayList;
@@ -81,6 +82,13 @@ public class MainActivity extends BaseActivity
             @Override
             public void onItemClick(NewsEntity entity) {
                 MUtils.toast("未实现");
+            }
+        });
+
+        findViewById(R.id.weather_tv).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(mContext, WeatherActivity.class));
             }
         });
     }
@@ -165,7 +173,7 @@ public class MainActivity extends BaseActivity
                 break;
             }
             case R.id.nav_traffic: {
-                MUtils.toast("未实现");
+                startActivity(new Intent(mContext, TrafficActivity.class));
                 break;
             }
             case R.id.nav_calendar: {

@@ -68,7 +68,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
                     app:layout_collapseMode="pin"
-                    app:navigationIcon="@null"
+                    app:navigationIcon="@drawable/ic_member_back"
                     app:popupTheme="@style/AppTheme.PopupOverlay"/>
 
 

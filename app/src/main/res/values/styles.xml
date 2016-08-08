@@ -80,4 +80,8 @@
     <style name="AppTheme.CheckBox" parent="Widget.AppCompat.CompoundButton.CheckBox">
         <item name="android:button">@drawable/checkbox_white_selector</item>
     </style>
+
+    <style name="AppTheme.Spinner" parent="Widget.AppCompat.Spinner">
+        <item name="overlapAnchor">false</item>
+    </style>
 </resources>
