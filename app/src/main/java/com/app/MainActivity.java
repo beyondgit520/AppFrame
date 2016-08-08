@@ -21,6 +21,8 @@ import com.app.databinding.ActivityMainBinding;
 import com.app.http.HttpMethods;
 import com.app.http.MySubscriber;
 import com.app.module.calendar.AddEventActivity;
+import com.app.module.calendar.CalendarActivity;
+import com.app.module.calendar.RemindActivity;
 import com.app.module.main.AttentionAdapter;
 import com.app.module.me.MeActivity;
 import com.app.module.news.NewsActivity;
@@ -167,11 +169,11 @@ public class MainActivity extends BaseActivity
                 break;
             }
             case R.id.nav_calendar: {
-                startActivity(new Intent(mContext, AddEventActivity.class));
+                startActivity(new Intent(mContext, CalendarActivity.class));
                 break;
             }
             case R.id.nav_remind: {
-                MUtils.toast("未实现");
+                startActivity(new Intent(mContext, RemindActivity.class));
                 break;
             }
             case R.id.nav_settings: {

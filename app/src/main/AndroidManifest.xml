@@ -167,6 +167,26 @@
             android:label="@string/title_activity_add_event"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
+        <activity
+            android:name=".module.calendar.CalendarActivity"
+            android:label="@string/title_activity_calendar"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".module.calendar.RemindActivity"
+            android:label="@string/title_activity_remind"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".module.calendar.AddRemindActivity"
+            android:label="@string/title_activity_add_remind"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".module.calendar.AllRemindActivity"
+            android:label="@string/title_activity_all_remind"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
     </application>
 
 </manifest>

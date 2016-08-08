@@ -240,7 +240,7 @@ public class MUtils {
         return currentLocale.equals(APP.getSetLocale());
     }
 
-    public static String timeFormate(int time) {
+    public static String timeFormate(long time) {
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault());
         return format.format(new Date(time * 1000));
     }
