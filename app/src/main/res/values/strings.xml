@@ -105,4 +105,5 @@
     <string name="pickerview_submit">confirm</string>
     <string name="title_activity_traffic">TrafficActivity</string>
     <string name="title_activity_add_navigation">AddNavigationActivity</string>
+    <string name="title_activity_navigation_list">NavigationListActivity</string>
 </resources>

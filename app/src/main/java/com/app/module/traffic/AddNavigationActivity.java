@@ -1,9 +1,12 @@
 package com.app.module.traffic;
 
+import android.content.Intent;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
 import com.app.R;
@@ -40,15 +43,14 @@ public class AddNavigationActivity extends BaseActivity {
         setContentView(R.layout.activity_add_navigation);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        if (getSupportActionBar() != null)
+            getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         map1 = (MapFragment) getFragmentManager().findFragmentById(R.id.map1);
         map1.getMapAsync(new OnMapReadyCallback() {
             @Override
             public void onMapReady(GoogleMap googleMap) {
                 googleMap1 = googleMap;
-                googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(10.2878770000, 22.1046050000))
-                        .title("Marker"));
-                googleMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(10.2878770000, 22.1046050000)));
+                googleMap1.animateCamera(CameraUpdateFactory.zoomTo(1f));
             }
         });
         map2 = (MapFragment) getFragmentManager().findFragmentById(R.id.map2);
@@ -56,14 +58,29 @@ public class AddNavigationActivity extends BaseActivity {
             @Override
             public void onMapReady(GoogleMap googleMap) {
                 googleMap2 = googleMap;
-                googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(32.7457670904, 89.7298191416))
-                        .title("Marker"));
-                googleMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(32.7457670904, 89.7298191416)));
+                googleMap2.animateCamera(CameraUpdateFactory.zoomTo(1f));
             }
         });
 
         geocoder = new Geocoder(mContext, Locale.CHINA);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        menu.getItem(0).setIcon(R.drawable.ic_upload_mirror);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.action_settings) {
+            // TODO: 16-8-6 提交事件
+            startActivity(new Intent(mContext, NavigationListActivity.class));
+        } else {
+            onBackPressed();
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     public void geo(View view) {
@@ -71,7 +88,7 @@ public class AddNavigationActivity extends BaseActivity {
             @Override
             public void call(Subscriber<? super List<Address>> subscriber) {
                 try {
-                    subscriber.onNext(geocoder.getFromLocationName("新洲三街", 5));
+                    subscriber.onNext(geocoder.getFromLocationName("新洲", 5));
                 } catch (IOException e) {
                     e.printStackTrace();
                     subscriber.onError(e);

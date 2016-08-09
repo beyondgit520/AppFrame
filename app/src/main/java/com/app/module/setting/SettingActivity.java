@@ -3,7 +3,6 @@ package com.app.module.setting;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.CompoundButton;
 
@@ -22,19 +21,12 @@ public class SettingActivity extends BaseActivity implements CompoundButton.OnCh
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_setting);
         setSupportActionBar(binding.toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         binding.newsSwitch.setOnCheckedChangeListener(this);
         binding.stockSwitch.setOnCheckedChangeListener(this);
         binding.trafficSwitch.setOnCheckedChangeListener(this);
         binding.calendarSwitch.setOnCheckedChangeListener(this);
         binding.remindSwitch.setOnCheckedChangeListener(this);
         binding.meSwitch.setOnCheckedChangeListener(this);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        onBackPressed();
-        return super.onOptionsItemSelected(item);
     }
 
     public void logOut(View view) {
